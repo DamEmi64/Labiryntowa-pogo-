@@ -19,7 +19,7 @@ var pos: Vector3
 var timer = 0.0
 
 func _generate_name() -> String:
-	return "Random move "
+	return "Random move"
 
 func _setup() -> void:
 	pos = agent.get_node(node_var).global_position

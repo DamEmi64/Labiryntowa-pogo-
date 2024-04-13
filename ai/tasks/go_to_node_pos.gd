@@ -6,17 +6,20 @@ extends BTAction
 ## How close should the agent be to the target position to return SUCCESS.
 @export var tolerance := 5.0
 
-@export var pos:Vector3
+@export var target_var: NodePath
 
 @export var node_var: NodePath
+
+var pos:Vector3
 
 var timer = 0.0
 
 func _generate_name() -> String:
-	return "Go to position"
+	return "Go to  " + target_var.get_name(0) + " position"
 
 # Called to initialize the task.
-
+func _setup() -> void:
+	pos = agent.get_node(target_var).global_position
 
 func _tick(_delta: float) -> Status:	
 	var node = agent.get_node(node_var)

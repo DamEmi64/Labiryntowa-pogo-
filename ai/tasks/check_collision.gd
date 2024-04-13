@@ -6,19 +6,18 @@ extends BTAction
 
 @export var target_var: NodePath
 
-@export var node_var: NodePath
+@export var player_var: NodePath
 
 func _generate_name() -> String:
-	return "Detect " + target_var.get_name(0);
+	return "Check collision " + player_var.get_name(0) + " with "+ target_var.get_name(0)
 
 # Called to initialize the task
 
 func _tick(_delta: float) -> Status:	
-	var node = agent.get_node(node_var)
+	var player = agent.get_node(player_var)
 	var target = agent.get_node(target_var)
-	var ray3d : RayCast3D = node.get_col
-	
-	if ray3d.is_colliding() && ray3d.get_collider() == target:
+	var distance = player.global_position.distance_to(target.global_position)
+	if distance < tolerance:
 		return SUCCESS
 	
 	return RUNNING

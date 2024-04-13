@@ -1,11 +1,26 @@
-[gd_scene load_steps=37 format=3 uid="uid://ch6nfvmwbevgj"]
+[gd_scene load_steps=38 format=3 uid="uid://dqk3pjcxqcmo2"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_jyv1g"]
-[ext_resource type="Script" path="res://enemy.gd" id="2_w4ff2"]
-[ext_resource type="Script" path="res://ai/tasks/random_move.gd" id="3_ro3uw"]
-[ext_resource type="Script" path="res://ai/tasks/check_collision.gd" id="4_ag0ov"]
-[ext_resource type="Script" path="res://teleport.gd" id="5_0a4sb"]
-[ext_resource type="Script" path="res://ai/tasks/change_scene.gd" id="5_rsndc"]
+[ext_resource type="Script" path="res://player.gd" id="1_04amy"]
+[ext_resource type="Script" path="res://enemy.gd" id="2_s25ll"]
+[ext_resource type="Script" path="res://ai/tasks/random_move.gd" id="3_i7byc"]
+[ext_resource type="Script" path="res://teleport.gd" id="4_b5l7v"]
+[ext_resource type="Script" path="res://ai/tasks/check_collision.gd" id="5_kge5g"]
+[ext_resource type="Script" path="res://ai/tasks/change_scene.gd" id="6_xtbne"]
+
+[sub_resource type="GDScript" id="GDScript_u3702"]
+script/source = "extends Node3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_685b2"]
 
@@ -55,7 +70,7 @@ albedo_color = Color(0.843137, 0.396078, 0.847059, 1)
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_6j5no"]
 
 [sub_resource type="BTAction" id="BTAction_eb1yy"]
-script = ExtResource("3_ro3uw")
+script = ExtResource("3_i7byc")
 time = 1e+11
 speed = 1.0
 node_var = NodePath("enemy")
@@ -71,7 +86,7 @@ children = [SubResource("BTAction_eb1yy")]
 blackboard_plan = SubResource("BlackboardPlan_6j5no")
 root_task = SubResource("BTRepeat_op3ef")
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_6xscq"]
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_a8pev"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kc7n1"]
 vertices = PackedVector3Array(3.75, 4.4537, 15.5, 3.75, 4.4537, 5.75, 3, 4.4537, 5.5, -15.5, 4.4537, 15.5, 3, 4.4537, -5.25, 4.25, 4.4537, -5.75, 4.25, 4.4537, -15.5, -15.5, 4.4537, -15.5, 3, 4.4537, -5.25, -15.5, 4.4537, -15.5, -15.5, 4.4537, 15.5, 3, 4.4537, 5.5, 4.25, 4.4537, -15.5, 4.25, 4.4537, -5.75, 5.25, 4.4537, -5.5, 15.5, 4.4537, -4.25, 15.5, 4.4537, -15.5, 5.25, 4.4537, -5.5, 5.25, 4.4537, -4, 15.5, 4.4537, -4.25, 5.25, 4.4537, -4, 5.25, 4.4537, 3.75, 15.5, 4.4537, 4, 15.5, 4.4537, -4.25, 15.5, 4.4537, 4, 5.25, 4.4537, 3.75, 5.25, 4.4537, 5.25, 5.25, 4.4537, 5.25, 3.75, 4.4537, 5.75, 3.75, 4.4537, 15.5, 15.5, 4.4537, 15.5, 15.5, 4.4537, 4)
@@ -97,38 +112,39 @@ albedo_color = Color(0.364706, 0.345098, 0.113725, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_7fnr0"]
 material = SubResource("StandardMaterial3D_cdg0k")
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_lbawc"]
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_g7qy1"]
 
-[sub_resource type="BTAction" id="BTAction_etfhx"]
-script = ExtResource("4_ag0ov")
+[sub_resource type="BTAction" id="BTAction_m75aq"]
+script = ExtResource("5_kge5g")
 tolerance = 1.0
 target_var = NodePath("teleport")
 player_var = NodePath("player")
 
-[sub_resource type="BTAction" id="BTAction_l35wa"]
-script = ExtResource("5_rsndc")
-scene_path = "res://scene2.tscn"
+[sub_resource type="BTAction" id="BTAction_3ohqg"]
+script = ExtResource("6_xtbne")
+scene_path = "res://scene.tscn"
 player_var = NodePath("player")
 
-[sub_resource type="BTSequence" id="BTSequence_ysb2l"]
-children = [SubResource("BTAction_etfhx"), SubResource("BTAction_l35wa")]
+[sub_resource type="BTSequence" id="BTSequence_kgpu5"]
+children = [SubResource("BTAction_m75aq"), SubResource("BTAction_3ohqg")]
 
-[sub_resource type="BTRepeat" id="BTRepeat_bkvaj"]
+[sub_resource type="BTRepeat" id="BTRepeat_07jv8"]
 forever = true
-children = [SubResource("BTSequence_ysb2l")]
+children = [SubResource("BTSequence_kgpu5")]
 
-[sub_resource type="BehaviorTree" id="BehaviorTree_trmv6"]
-blackboard_plan = SubResource("BlackboardPlan_lbawc")
-root_task = SubResource("BTRepeat_bkvaj")
+[sub_resource type="BehaviorTree" id="BehaviorTree_r1qtt"]
+blackboard_plan = SubResource("BlackboardPlan_g7qy1")
+root_task = SubResource("BTRepeat_07jv8")
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_wwiab"]
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_mlk8q"]
 
-[node name="scene" type="Node3D"]
+[node name="scene2" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2104, 0, 13.3526)
+script = SubResource("GDScript_u3702")
 
 [node name="player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.7299, 0)
-script = ExtResource("1_jyv1g")
+script = ExtResource("1_04amy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player"]
 shape = SubResource("CapsuleShape3D_685b2")
@@ -146,7 +162,7 @@ transform = Transform3D(1, 0, 0, 0, 0.873594, 0.486656, 0, -0.486656, 0.873594, 
 
 [node name="enemy" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.89908, 18.5879, 0)
-script = ExtResource("2_w4ff2")
+script = ExtResource("2_s25ll")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="enemy"]
 shape = SubResource("CylinderShape3D_v3xjh")
@@ -158,7 +174,7 @@ skeleton = NodePath("../../..")
 
 [node name="BTPlayer" type="BTPlayer" parent="enemy"]
 behavior_tree = SubResource("BehaviorTree_nbqrf")
-blackboard_plan = SubResource("BlackboardPlan_6xscq")
+blackboard_plan = SubResource("BlackboardPlan_a8pev")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="enemy"]
 
@@ -169,7 +185,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.0463, 0)
 navigation_mesh = SubResource("NavigationMesh_kc7n1")
 
 [node name="wall" type="MeshInstance3D" parent="nav"]
-transform = Transform3D(-0.0110477, 0, 0.999939, 0, 1, 0, -0.999939, 0, -0.0110477, 4.12022, 5.85005, 0)
+transform = Transform3D(-0.0110477, 0, 0.999939, 0, 1, 0, -0.999939, 0, -0.0110477, 8.34781, 5.85005, 0)
 mesh = SubResource("BoxMesh_3yif8")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="nav/wall"]
@@ -193,8 +209,8 @@ mesh = SubResource("BoxMesh_vhfgr")
 transform = Transform3D(-0.999756, 0, -0.0220941, 0, 1, 0, 0.0220941, 0, -0.999756, -0.954714, 16.2421, 8.07047)
 mesh = SubResource("PlaneMesh_7fnr0")
 skeleton = NodePath("../nav/wall")
-script = ExtResource("5_0a4sb")
+script = ExtResource("4_b5l7v")
 
 [node name="BTScene" type="BTPlayer" parent="."]
-behavior_tree = SubResource("BehaviorTree_trmv6")
-blackboard_plan = SubResource("BlackboardPlan_wwiab")
+behavior_tree = SubResource("BehaviorTree_r1qtt")
+blackboard_plan = SubResource("BlackboardPlan_mlk8q")
