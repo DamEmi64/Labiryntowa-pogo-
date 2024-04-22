@@ -1,19 +1,19 @@
-[gd_resource type="BehaviorTree" load_steps=8 format=3 uid="uid://bhdddbxaavsld"]
+[gd_resource type="BehaviorTree" load_steps=8 format=3 uid="uid://d12c8n14q0aua"]
 
-[ext_resource type="Script" path="res://ai/tasks/check_collision.gd" id="1_wt6jg"]
-[ext_resource type="Script" path="res://ai/tasks/change_scene.gd" id="2_oyb0q"]
+[ext_resource type="Script" path="res://ai/tasks/check_collision.gd" id="1_ftp18"]
+[ext_resource type="Script" path="res://ai/tasks/change_scene.gd" id="2_o5xwj"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_p2yc7"]
 
 [sub_resource type="BTAction" id="BTAction_h26l0"]
-script = ExtResource("1_wt6jg")
+script = ExtResource("1_ftp18")
 tolerance = 1.0
 target_var = NodePath("teleport")
 player_var = NodePath("player")
 
 [sub_resource type="BTAction" id="BTAction_1mf5p"]
-script = ExtResource("2_oyb0q")
-scene_path = "res://scene2.tscn"
+script = ExtResource("2_o5xwj")
+scene_path = "res://scenes/scene.tscn"
 player_var = NodePath("player")
 
 [sub_resource type="BTSequence" id="BTSequence_5m5r4"]

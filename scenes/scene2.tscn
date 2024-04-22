@@ -1,0 +1,190 @@
+[gd_scene load_steps=33 format=3 uid="uid://1ukhci5wur38"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_3ljat"]
+[ext_resource type="Script" path="res://ai/enemy.gd" id="2_7678a"]
+[ext_resource type="Script" path="res://ai/tasks/random_move.gd" id="3_i2rg2"]
+[ext_resource type="BehaviorTree" uid="uid://d12c8n14q0aua" path="res://global/BTScene2.tres" id="4_ybol6"]
+[ext_resource type="Script" path="res://Point.gd" id="5_1gj72"]
+[ext_resource type="PackedScene" uid="uid://ctqjqjstobqhx" path="res://scenes/control.tscn" id="6_tj3in"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_685b2"]
+
+[sub_resource type="MeshTexture" id="MeshTexture_8awe0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4chcm"]
+metallic = 1.0
+metallic_specular = 1.0
+metallic_texture = SubResource("MeshTexture_8awe0")
+
+[sub_resource type="FogMaterial" id="FogMaterial_v5i1h"]
+albedo = Color(0.337255, 0.180392, 0.34902, 1)
+
+[sub_resource type="Shader" id="Shader_7s34d"]
+code = "shader_type spatial;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	// Called for every pixel the material is visible on.
+}
+
+//void light() {
+	// Called for every pixel for every light affecting the material.
+	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ol6h8"]
+render_priority = 0
+next_pass = SubResource("FogMaterial_v5i1h")
+shader = SubResource("Shader_7s34d")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_tjpju"]
+material = SubResource("ShaderMaterial_ol6h8")
+custom_aabb = AABB(12, 0, 0, 5, 5, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_v3xjh"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_suym6"]
+albedo_color = Color(0.843137, 0.396078, 0.847059, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_h72ug"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_6j5no"]
+
+[sub_resource type="BTAction" id="BTAction_eb1yy"]
+script = ExtResource("3_i2rg2")
+time = 1e+11
+speed = 1.0
+node_var = NodePath("enemy")
+LDVector = Vector3(32, 0, 32)
+tolerance = 5.0
+RUVector = Vector3(0, 0, 0)
+
+[sub_resource type="BTRepeat" id="BTRepeat_op3ef"]
+forever = true
+children = [SubResource("BTAction_eb1yy")]
+
+[sub_resource type="BehaviorTree" id="BehaviorTree_nbqrf"]
+blackboard_plan = SubResource("BlackboardPlan_6j5no")
+root_task = SubResource("BTRepeat_op3ef")
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_prq7b"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_kc7n1"]
+vertices = PackedVector3Array(3.75, 4.4537, 15.5, 3.75, 4.4537, 5.75, 3, 4.4537, 5.5, -15.5, 4.4537, 15.5, 3, 4.4537, -5.25, 4.25, 4.4537, -5.75, 4.25, 4.4537, -15.5, -15.5, 4.4537, -15.5, 3, 4.4537, -5.25, -15.5, 4.4537, -15.5, -15.5, 4.4537, 15.5, 3, 4.4537, 5.5, 4.25, 4.4537, -15.5, 4.25, 4.4537, -5.75, 5.25, 4.4537, -5.5, 15.5, 4.4537, -4.25, 15.5, 4.4537, -15.5, 5.25, 4.4537, -5.5, 5.25, 4.4537, -4, 15.5, 4.4537, -4.25, 5.25, 4.4537, -4, 5.25, 4.4537, 3.75, 15.5, 4.4537, 4, 15.5, 4.4537, -4.25, 15.5, 4.4537, 4, 5.25, 4.4537, 3.75, 5.25, 4.4537, 5.25, 5.25, 4.4537, 5.25, 3.75, 4.4537, 5.75, 3.75, 4.4537, 15.5, 15.5, 4.4537, 15.5, 15.5, 4.4537, 4)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(11, 10, 8), PackedInt32Array(8, 10, 9), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 16), PackedInt32Array(14, 16, 15), PackedInt32Array(19, 18, 17), PackedInt32Array(20, 23, 21), PackedInt32Array(21, 23, 22), PackedInt32Array(26, 25, 24), PackedInt32Array(28, 27, 29), PackedInt32Array(29, 27, 30), PackedInt32Array(30, 27, 31)]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3yif8"]
+size = Vector3(10, 2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dus72"]
+size = Vector3(10, 2, 1)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pmgor"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jbbf5"]
+size = Vector3(32, 32, 32)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vhfgr"]
+size = Vector3(32, 32, 32)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cdg0k"]
+albedo_color = Color(0.364706, 0.345098, 0.113725, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7fnr0"]
+material = SubResource("StandardMaterial3D_cdg0k")
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_vtqkc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cdlsc"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_n8pmm"]
+material = SubResource("StandardMaterial3D_cdlsc")
+radius = 0.25
+height = 0.5
+
+[node name="scene2" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2104, 0, 13.3526)
+
+[node name="player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.7299, 0)
+script = ExtResource("1_3ljat")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player"]
+shape = SubResource("CapsuleShape3D_685b2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="player/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0645676, -0.0623417, -0.400013)
+material_override = SubResource("StandardMaterial3D_4chcm")
+mesh = SubResource("CapsuleMesh_tjpju")
+
+[node name="sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.112631, 0.993637, 0, -0.993637, 0.112631, 0, 36.6716, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.873594, 0.486656, 0, -0.486656, 0.873594, 0.475513, 28.2649, 23.0331)
+
+[node name="enemy" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.89908, 18.5879, 0)
+script = ExtResource("2_7678a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="enemy"]
+shape = SubResource("CylinderShape3D_v3xjh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="enemy/CollisionShape3D"]
+material_overlay = SubResource("ORMMaterial3D_suym6")
+mesh = SubResource("CylinderMesh_h72ug")
+skeleton = NodePath("../../..")
+
+[node name="BTPlayer" type="BTPlayer" parent="enemy"]
+behavior_tree = SubResource("BehaviorTree_nbqrf")
+blackboard_plan = SubResource("BlackboardPlan_prq7b")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="enemy"]
+
+[node name="RayCast3D" type="RayCast3D" parent="enemy"]
+
+[node name="nav" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.0463, 0)
+navigation_mesh = SubResource("NavigationMesh_kc7n1")
+
+[node name="wall" type="MeshInstance3D" parent="nav"]
+transform = Transform3D(-0.0110477, 0, 0.999939, 0, 1, 0, -0.999939, 0, -0.0110477, 4.12022, 5.85005, 0)
+mesh = SubResource("BoxMesh_3yif8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="nav/wall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="nav/wall/StaticBody3D"]
+transform = Transform3D(1, 0, -1.86265e-09, 0, 1, 0, 1.86265e-09, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_dus72")
+
+[node name="floor" type="RigidBody3D" parent="nav"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.0463, 0)
+physics_material_override = SubResource("PhysicsMaterial_pmgor")
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="nav/floor"]
+shape = SubResource("BoxShape3D_jbbf5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="nav/floor/CollisionShape3D"]
+mesh = SubResource("BoxMesh_vhfgr")
+
+[node name="teleport" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.999756, 0, -0.0220941, 0, 1, 0, 0.0220941, 0, -0.999756, -0.954714, 16.2421, 15.2936)
+mesh = SubResource("PlaneMesh_7fnr0")
+skeleton = NodePath("../nav/wall")
+
+[node name="BTScene" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("4_ybol6")
+blackboard_plan = SubResource("BlackboardPlan_vtqkc")
+
+[node name="Point" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.3104, 5.40576)
+mesh = SubResource("SphereMesh_n8pmm")
+script = ExtResource("5_1gj72")
+
+[node name="control" parent="." instance=ExtResource("6_tj3in")]
