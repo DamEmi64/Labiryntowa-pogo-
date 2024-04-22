@@ -2,7 +2,7 @@ extends Node
 
 @export var points : int
 
-@export var lifes: int = 1
+@export var lifes: int = 3
 
 @export var player_position: Vector3
 
