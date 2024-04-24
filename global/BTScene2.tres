@@ -1,7 +1,8 @@
-[gd_resource type="BehaviorTree" load_steps=8 format=3 uid="uid://d12c8n14q0aua"]
+[gd_resource type="BehaviorTree" load_steps=16 format=3 uid="uid://d12c8n14q0aua"]
 
 [ext_resource type="Script" path="res://ai/tasks/check_collision.gd" id="1_ftp18"]
 [ext_resource type="Script" path="res://ai/tasks/change_scene.gd" id="2_o5xwj"]
+[ext_resource type="Script" path="res://ai/tasks/random_move.gd" id="3_guaaq"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_p2yc7"]
 
@@ -19,9 +20,44 @@ player_var = NodePath("player")
 [sub_resource type="BTSequence" id="BTSequence_5m5r4"]
 children = [SubResource("BTAction_h26l0"), SubResource("BTAction_1mf5p")]
 
+[sub_resource type="BTAction" id="BTAction_qd2k4"]
+script = ExtResource("3_guaaq")
+time = 1.0
+speed = 1.0
+node_var = NodePath("enemy")
+LDVector = Vector3(32, 0, 32)
+tolerance = 5.0
+RUVector = Vector3(16, 0, 16)
+
+[sub_resource type="BTSequence" id="BTSequence_ss2cs"]
+custom_name = "PIXIE"
+children = [SubResource("BTAction_qd2k4")]
+
+[sub_resource type="BTAction" id="BTAction_3im8v"]
+script = ExtResource("3_guaaq")
+time = 1.0
+speed = 1.0
+node_var = NodePath("enemy")
+LDVector = Vector3(16, 0, 16)
+tolerance = 5.0
+RUVector = Vector3(0, 0, 0)
+
+[sub_resource type="BTSequence" id="BTSequence_c6cwy"]
+custom_name = "DIXIE"
+children = [SubResource("BTAction_3im8v")]
+
+[sub_resource type="BTSequence" id="BTSequence_lsi3s"]
+custom_name = "VIXIE"
+
+[sub_resource type="BTSequence" id="BTSequence_1e7v5"]
+custom_name = "MIXIE"
+
+[sub_resource type="BTSelector" id="BTSelector_qio8a"]
+children = [SubResource("BTSequence_ss2cs"), SubResource("BTSequence_c6cwy"), SubResource("BTSequence_lsi3s"), SubResource("BTSequence_1e7v5")]
+
 [sub_resource type="BTRepeat" id="BTRepeat_q3ym4"]
 forever = true
-children = [SubResource("BTSequence_5m5r4")]
+children = [SubResource("BTSequence_5m5r4"), SubResource("BTSelector_qio8a")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_p2yc7")

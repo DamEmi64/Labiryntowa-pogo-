@@ -13,6 +13,12 @@ extends BTAction
 @export var node_var: NodePath
 
 var timer = 0.0
+var node
+var target
+
+func _setup() -> void:
+	target = agent.get_node(target_var)
+	node = agent.get_node(node_var)
 
 func _generate_name() -> String:
 	return "Chase " + target_var.get_name(0)
@@ -20,11 +26,15 @@ func _generate_name() -> String:
 func _tick(_delta: float) -> Status:
 	
 	if timer == time:
+		timer = 0
+		node.chasing = false
 		return SUCCESS
+	timer +=1
 	
-	var target = agent.get_node(target_var)
-	var node = agent.get_node(node_var)
+	node.chasing = true
 	if node.global_position.distance_to(target.global_position) < tolerance:
+		timer = 0
+		node.chasing = false
 		return SUCCESS
 		
 	#var velocity = (target.global_position - node.global_position).normalized()

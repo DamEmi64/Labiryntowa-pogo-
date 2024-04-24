@@ -1,9 +1,12 @@
-[gd_scene load_steps=33 format=3 uid="uid://ch6nfvmwbevgj"]
+[gd_scene load_steps=38 format=3 uid="uid://ch6nfvmwbevgj"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_jyv1g"]
 [ext_resource type="Script" path="res://ai/enemy.gd" id="2_w4ff2"]
-[ext_resource type="Script" path="res://ai/tasks/random_move.gd" id="3_ro3uw"]
 [ext_resource type="BehaviorTree" uid="uid://46hkdv3wr6gd" path="res://global/BTScene.tres" id="4_hyx0w"]
+[ext_resource type="BehaviorTree" uid="uid://ckhq02kr8inxw" path="res://ai/DixieAI.tres" id="4_j3r03"]
+[ext_resource type="BehaviorTree" uid="uid://dsywbi63h2ybm" path="res://ai/Pixie.tres" id="5_g21l6"]
+[ext_resource type="BehaviorTree" uid="uid://n5ndtmf4v1ak" path="res://ai/Mixie.tres" id="5_p3472"]
+[ext_resource type="BehaviorTree" uid="uid://co0q2a7t2et05" path="res://ai/Vixie.tres" id="6_drjm2"]
 [ext_resource type="Script" path="res://Point.gd" id="7_5fgug"]
 [ext_resource type="PackedScene" uid="uid://ctqjqjstobqhx" path="res://scenes/control.tscn" id="8_1p852"]
 
@@ -48,30 +51,25 @@ custom_aabb = AABB(12, 0, 0, 5, 5, 1)
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_v3xjh"]
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_suym6"]
-albedo_color = Color(0.843137, 0.396078, 0.847059, 1)
+albedo_color = Color(0.956863, 0.411765, 0.188235, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_h72ug"]
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_6j5no"]
-
-[sub_resource type="BTAction" id="BTAction_eb1yy"]
-script = ExtResource("3_ro3uw")
-time = 1e+11
-speed = 1.0
-node_var = NodePath("enemy")
-LDVector = Vector3(32, 0, 32)
-tolerance = 5.0
-RUVector = Vector3(0, 0, 0)
-
-[sub_resource type="BTRepeat" id="BTRepeat_op3ef"]
-forever = true
-children = [SubResource("BTAction_eb1yy")]
-
-[sub_resource type="BehaviorTree" id="BehaviorTree_nbqrf"]
-blackboard_plan = SubResource("BlackboardPlan_6j5no")
-root_task = SubResource("BTRepeat_op3ef")
-
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_6xscq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x3lp5"]
+albedo_color = Color(0.121569, 0.407843, 0.678431, 1)
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_l2nuu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dhe1r"]
+albedo_color = Color(0.00392157, 0.482353, 0.352941, 1)
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_bl8gq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4dydm"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_au4se"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kc7n1"]
 vertices = PackedVector3Array(3.75, 4.4537, 15.5, 3.75, 4.4537, 5.75, 3, 4.4537, 5.5, -15.5, 4.4537, 15.5, 3, 4.4537, -5.25, 4.25, 4.4537, -5.75, 4.25, 4.4537, -15.5, -15.5, 4.4537, -15.5, 3, 4.4537, -5.25, -15.5, 4.4537, -15.5, -15.5, 4.4537, 15.5, 3, 4.4537, 5.5, 4.25, 4.4537, -15.5, 4.25, 4.4537, -5.75, 5.25, 4.4537, -5.5, 15.5, 4.4537, -4.25, 15.5, 4.4537, -15.5, 5.25, 4.4537, -5.5, 5.25, 4.4537, -4, 15.5, 4.4537, -4.25, 5.25, 4.4537, -4, 5.25, 4.4537, 3.75, 15.5, 4.4537, 4, 15.5, 4.4537, -4.25, 15.5, 4.4537, 4, 5.25, 4.4537, 3.75, 5.25, 4.4537, 5.25, 5.25, 4.4537, 5.25, 3.75, 4.4537, 5.75, 3.75, 4.4537, 15.5, 15.5, 4.4537, 15.5, 15.5, 4.4537, 4)
@@ -108,7 +106,7 @@ radius = 0.25
 height = 0.5
 
 [node name="scene" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2104, 0, 13.3526)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6626, -15.6462, 15.0876)
 
 [node name="player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.7299, 0)
@@ -128,25 +126,88 @@ transform = Transform3D(1, 0, 0, 0, 0.112631, 0.993637, 0, -0.993637, 0.112631, 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.873594, 0.486656, 0, -0.486656, 0.873594, 0.475513, 28.2649, 23.0331)
 
-[node name="enemy" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.89908, 18.5879, 0)
+[node name="Pixie" type="CharacterBody3D" parent="."]
+transform = Transform3D(-0.813892, 0, 0.581016, 0, 1, 0, -0.581016, 0, -0.813892, 3.03349, 17.9572, 12.8404)
 script = ExtResource("2_w4ff2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="enemy"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pixie"]
 shape = SubResource("CylinderShape3D_v3xjh")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="enemy/CollisionShape3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pixie/CollisionShape3D"]
 material_overlay = SubResource("ORMMaterial3D_suym6")
 mesh = SubResource("CylinderMesh_h72ug")
 skeleton = NodePath("../../..")
 
-[node name="BTPlayer" type="BTPlayer" parent="enemy"]
-behavior_tree = SubResource("BehaviorTree_nbqrf")
+[node name="BTPlayer" type="BTPlayer" parent="Pixie"]
+behavior_tree = ExtResource("5_g21l6")
 blackboard_plan = SubResource("BlackboardPlan_6xscq")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="enemy"]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Pixie"]
 
-[node name="RayCast3D" type="RayCast3D" parent="enemy"]
+[node name="RayCast3D" type="RayCast3D" parent="Pixie"]
+transform = Transform3D(-2.18239e-05, -499.273, 26.9523, 500, -2.18557e-05, -7.0951e-14, 1.17812e-06, 26.9523, 499.273, 0, 0, 0)
+rotation_order = 0
+debug_shape_custom_color = Color(0.219608, 0.219608, 0.137255, 1)
+
+[node name="Dixie" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2638, 18.5879, 4.10682)
+script = ExtResource("2_w4ff2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Dixie"]
+shape = SubResource("CylinderShape3D_v3xjh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Dixie/CollisionShape3D"]
+material_overlay = SubResource("StandardMaterial3D_x3lp5")
+mesh = SubResource("CylinderMesh_h72ug")
+skeleton = NodePath("../../..")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Dixie"]
+
+[node name="RayCast3D" type="RayCast3D" parent="Dixie"]
+
+[node name="BTPlayer" type="BTPlayer" parent="Dixie"]
+behavior_tree = ExtResource("4_j3r03")
+blackboard_plan = SubResource("BlackboardPlan_l2nuu")
+
+[node name="Mixie" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.89908, 18.5879, 2.19744)
+script = ExtResource("2_w4ff2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mixie"]
+shape = SubResource("CylinderShape3D_v3xjh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mixie/CollisionShape3D"]
+material_overlay = SubResource("StandardMaterial3D_dhe1r")
+mesh = SubResource("CylinderMesh_h72ug")
+skeleton = NodePath("../../..")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Mixie"]
+
+[node name="RayCast3D" type="RayCast3D" parent="Mixie"]
+
+[node name="BTPlayer" type="BTPlayer" parent="Mixie"]
+behavior_tree = ExtResource("5_p3472")
+blackboard_plan = SubResource("BlackboardPlan_bl8gq")
+
+[node name="Vixie" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.89908, 18.5879, 0)
+script = ExtResource("2_w4ff2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Vixie"]
+shape = SubResource("CylinderShape3D_v3xjh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Vixie/CollisionShape3D"]
+material_overlay = SubResource("StandardMaterial3D_4dydm")
+mesh = SubResource("CylinderMesh_h72ug")
+skeleton = NodePath("../../..")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Vixie"]
+
+[node name="RayCast3D" type="RayCast3D" parent="Vixie"]
+
+[node name="BTPlayer" type="BTPlayer" parent="Vixie"]
+behavior_tree = ExtResource("6_drjm2")
+blackboard_plan = SubResource("BlackboardPlan_au4se")
 
 [node name="nav" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.0463, 0)
@@ -174,13 +235,14 @@ shape = SubResource("BoxShape3D_jbbf5")
 mesh = SubResource("BoxMesh_vhfgr")
 
 [node name="teleport" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.999756, 0, -0.0220941, 0, 1, 0, 0.0220941, 0, -0.999756, -0.954714, 16.2421, 8.07047)
+transform = Transform3D(-0.999756, 0, -0.0220941, 0, 1, 0, 0.0220941, 0, -0.999756, -0.954714, 16.2421, 17.3996)
 mesh = SubResource("PlaneMesh_7fnr0")
 skeleton = NodePath("../nav/wall")
 
 [node name="BTScene" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("4_hyx0w")
 blackboard_plan = SubResource("BlackboardPlan_wwiab")
+monitor_performance = true
 
 [node name="Point" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.3104, 5.40576)

@@ -1,0 +1,55 @@
+[gd_resource type="BehaviorTree" load_steps=15 format=3 uid="uid://n5ndtmf4v1ak"]
+
+[ext_resource type="Script" path="res://ai/tasks/is_chasing.gd" id="1_seof1"]
+[ext_resource type="Script" path="res://ai/tasks/random_move.gd" id="2_q6qih"]
+[ext_resource type="Script" path="res://ai/tasks/chase.gd" id="3_hw8ig"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_8snxg"]
+
+[sub_resource type="BTAction" id="BTAction_5tkhc"]
+script = ExtResource("1_seof1")
+node_var = NodePath("Pixie")
+
+[sub_resource type="BTInvert" id="BTInvert_i4ma1"]
+children = [SubResource("BTAction_5tkhc")]
+
+[sub_resource type="BTAction" id="BTAction_qeean"]
+script = ExtResource("2_q6qih")
+time = 100.0
+speed = 1.0
+node_var = NodePath("Pixie")
+LDVector = Vector3(32, 0, 32)
+tolerance = 5.0
+RUVector = Vector3(0, 0, 0)
+
+[sub_resource type="BTSequence" id="BTSequence_cikcd"]
+children = [SubResource("BTInvert_i4ma1"), SubResource("BTAction_qeean")]
+
+[sub_resource type="BTRepeat" id="BTRepeat_0jmhq"]
+forever = true
+children = [SubResource("BTSequence_cikcd")]
+
+[sub_resource type="BTWait" id="BTWait_snct7"]
+duration = 20.0
+
+[sub_resource type="BTAction" id="BTAction_fi1ao"]
+script = ExtResource("3_hw8ig")
+time = 3000.0
+speed = 1.0
+tolerance = 5.0
+target_var = NodePath("player")
+node_var = NodePath("Mixie")
+
+[sub_resource type="BTSequence" id="BTSequence_cuqw6"]
+children = [SubResource("BTWait_snct7"), SubResource("BTAction_fi1ao")]
+
+[sub_resource type="BTRepeat" id="BTRepeat_6wmnd"]
+forever = true
+children = [SubResource("BTSequence_cuqw6")]
+
+[sub_resource type="BTParallel" id="BTParallel_21c2d"]
+children = [SubResource("BTRepeat_0jmhq"), SubResource("BTRepeat_6wmnd")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_8snxg")
+root_task = SubResource("BTParallel_21c2d")

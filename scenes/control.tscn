@@ -68,6 +68,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="userUI" type="Panel" parent="."]
+layout_mode = 0
 offset_left = 11.0
 offset_top = 18.0
 offset_right = 204.0
