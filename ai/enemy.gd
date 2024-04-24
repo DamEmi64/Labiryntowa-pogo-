@@ -26,6 +26,6 @@ func move_pathfind(target_locaction):
 	set_physics_process(true)
 	nav_agent.target_position = target_locaction
 	var direction = (nav_agent.get_next_path_position() - global_position).normalized() * SPEED
-	velocity = velocity.lerp(direction,0.05) 
-	rayCast.target_position = Vector3(0,velocity.x,velocity.z)
+	velocity = velocity.lerp(direction,0.05)  
+	rayCast.set_target_position(Vector3(position.x + velocity.x,1,position.z + velocity.z))
 	move_and_slide()
