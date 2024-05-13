@@ -32,7 +32,6 @@ children = [SubResource("BTSequence_cikcd")]
 
 [sub_resource type="BTAction" id="BTAction_sunf4"]
 script = ExtResource("1_dha3p")
-tolerance = 5.0
 target_var = NodePath("player")
 node_var = NodePath("Dixie")
 time_for_detect = 0
@@ -41,7 +40,7 @@ time_for_detect = 0
 script = ExtResource("3_hw8ig")
 time = 100.0
 speed = 1.0
-tolerance = 5.0
+tolerance_for_chase = 1.0
 target_var = NodePath("player")
 node_var = NodePath("Dixie")
 
@@ -59,7 +58,7 @@ duration = 20.0
 script = ExtResource("3_hw8ig")
 time = 3000.0
 speed = 1.0
-tolerance = 5.0
+tolerance_for_chase = 1.0
 target_var = NodePath("player")
 node_var = NodePath("Dixie")
 

@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccrxdx1y54ee8"]
+
+[sub_resource type="SystemFont" id="SystemFont_jko2x"]
+font_italic = true
+font_weight = 450
+font_stretch = 125
+
+[sub_resource type="LabelSettings" id="LabelSettings_2l4ge"]
+font = SubResource("SystemFont_jko2x")
+font_size = 45
+outline_color = Color(0.215686, 0.254902, 0.121569, 1)
+shadow_color = Color(0.48691, 0.414991, 0.398852, 0)
+
+[sub_resource type="GDScript" id="GDScript_se61i"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pressed.connect(_button_pressed)
+	pass
+	
+func _button_pressed():
+	get_tree().change_scene_to_file(\"res://scenes/scene.tscn\")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 1165.0
+offset_bottom = 378.0
+text = "LABIRYNTOWA POGOŃ"
+label_settings = SubResource("LabelSettings_2l4ge")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 370.0
+offset_top = 303.0
+offset_right = 791.0
+offset_bottom = 379.0
+text = "GRAJ"
+script = SubResource("GDScript_se61i")

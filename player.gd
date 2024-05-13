@@ -9,6 +9,9 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var collision_obj : Object
 
 func _physics_process(delta):
+	#If no lives stop moving
+	if Global.lifes <=0:
+		return
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta

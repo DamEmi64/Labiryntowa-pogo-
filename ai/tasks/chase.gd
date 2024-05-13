@@ -6,7 +6,7 @@ extends BTAction
 @export var speed: float = 1.0
 
 ## How close should the agent be to the target position to return SUCCESS.
-@export var tolerance := 5.0
+@export var tolerance_for_chase: float = 1.0
 
 @export var target_var: NodePath
 
@@ -32,7 +32,7 @@ func _tick(_delta: float) -> Status:
 	timer +=1
 	
 	node.chasing = true
-	if node.global_position.distance_to(target.global_position) < tolerance:
+	if node.global_position.distance_to(target.global_position) < tolerance_for_chase:
 		timer = 0
 		node.chasing = false
 		return SUCCESS
