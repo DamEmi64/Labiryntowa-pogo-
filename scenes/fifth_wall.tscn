@@ -1,7 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://iv187ywfw0ob"]
+[gd_scene load_steps=25 format=3 uid="uid://iv187ywfw0ob"]
 
 [ext_resource type="Script" path="res://scenes/nav.gd" id="1_bxad5"]
-[ext_resource type="BehaviorTree" uid="uid://d12237n3l0nbo" path="res://ai/fifth_wall.tres" id="2_7fbp2"]
+[ext_resource type="Script" path="res://scenes/wall.gd" id="1_lnwqr"]
 [ext_resource type="Script" path="res://player.gd" id="2_aqaqo"]
 [ext_resource type="Script" path="res://ai/teleport.gd" id="3_6flvc"]
 
@@ -49,8 +49,6 @@ albedo_color = Color(0.309804, 0.309804, 0.309804, 1)
 material = SubResource("StandardMaterial3D_c188v")
 size = Vector3(32, 32, 32)
 
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_8wb3m"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aj1we"]
 albedo_color = Color(0.364706, 0.345098, 0.113725, 1)
 
@@ -59,52 +57,23 @@ material = SubResource("StandardMaterial3D_aj1we")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2bmd4"]
 
-[sub_resource type="MeshTexture" id="MeshTexture_4mphd"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wk5nb"]
+albedo_color = Color(1, 1, 0, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qohuw"]
-metallic = 1.0
-metallic_specular = 1.0
-metallic_texture = SubResource("MeshTexture_4mphd")
-
-[sub_resource type="FogMaterial" id="FogMaterial_cxypv"]
-albedo = Color(0.337255, 0.180392, 0.34902, 1)
-
-[sub_resource type="Shader" id="Shader_d6u4a"]
-code = "shader_type spatial;
-
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
-
-void fragment() {
-	// Called for every pixel the material is visible on.
-}
-
-//void light() {
-	// Called for every pixel for every light affecting the material.
-	// Uncomment to replace the default light processing function with this one.
-//}
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ljgf"]
-render_priority = 0
-next_pass = SubResource("FogMaterial_cxypv")
-shader = SubResource("Shader_d6u4a")
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_djpsg"]
-material = SubResource("ShaderMaterial_0ljgf")
-custom_aabb = AABB(12, 0, 0, 5, 5, 1)
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5khye"]
+material = SubResource("StandardMaterial3D_wk5nb")
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_lnwqr")
 
 [node name="sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.112631, 0.993637, 0, -0.993637, 0.112631, 0, 36.6716, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.550728, 0.834685, 0, -0.834685, 0.550728, 1.75675, 39.3876, 16.1138)
+transform = Transform3D(0.999999, 0.00136957, -0.000903065, 1.16413e-10, 0.550481, 0.834848, 0.0016405, -0.834847, 0.55048, 5.41621, 36.1195, 9.63016)
 
 [node name="nav" type="NavigationRegion3D" parent="."]
-transform = Transform3D(0.00202443, 0, -0.999998, 0, 1, 0, 0.999998, 0, 0.00202443, 0, 12.0463, -0.0649662)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00209, 12.0463, -6.73474)
 navigation_mesh = SubResource("NavigationMesh_iqffc")
 
 [node name="wall" type="MeshInstance3D" parent="nav"]
@@ -479,31 +448,24 @@ shape = SubResource("BoxShape3D_xdp2f")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="nav/floor/CollisionShape3D"]
 mesh = SubResource("BoxMesh_wr5ll")
 
-[node name="BTScene" type="BTPlayer" parent="nav"]
-behavior_tree = ExtResource("2_7fbp2")
-blackboard_plan = SubResource("BlackboardPlan_8wb3m")
-monitor_performance = true
-
 [node name="teleport9" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.024118, 0, 0.999711, 0, 1, 0, -0.999711, 0, -0.024118, 15.208, 16.1734, -1.19286)
+transform = Transform3D(-0.993633, 0, -0.112683, 0, 1, 0, 0.112683, 0, -0.993633, 0.924178, 16.1734, -22.7025)
 mesh = SubResource("PlaneMesh_bwjck")
 skeleton = NodePath("../nav/wall")
 script = ExtResource("3_6flvc")
 
 [node name="teleport8" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.024118, 0, 0.999711, 0, 1, 0, -0.999711, 0, -0.024118, -3.64572, 16.1734, 15.0912)
+transform = Transform3D(-0.993633, 0, -0.112683, 0, 1, 0, 0.112683, 0, -0.993633, 17.7261, 16.1734, -2.94349)
 mesh = SubResource("PlaneMesh_bwjck")
 skeleton = NodePath("../nav/wall")
 script = ExtResource("3_6flvc")
 
 [node name="player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.88939, 17.7299, 12.5497)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6873, 17.7299, -3.08181)
 script = ExtResource("2_aqaqo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player"]
 shape = SubResource("CapsuleShape3D_2bmd4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="player/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0645676, -0.0623417, -0.0555992)
-material_override = SubResource("StandardMaterial3D_qohuw")
-mesh = SubResource("CapsuleMesh_djpsg")
+mesh = SubResource("CapsuleMesh_5khye")

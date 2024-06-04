@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bdai4ubo1skx"]
+[gd_scene load_steps=25 format=3 uid="uid://bdai4ubo1skx"]
 
 [ext_resource type="Script" path="res://scenes/wall.gd" id="1_edsnb"]
 [ext_resource type="Script" path="res://scenes/nav.gd" id="1_owprp"]
@@ -57,41 +57,11 @@ material = SubResource("StandardMaterial3D_hikia")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m636m"]
 
-[sub_resource type="MeshTexture" id="MeshTexture_4v3td"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v2ugs"]
+albedo_color = Color(1, 1, 0, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m2i60"]
-metallic = 1.0
-metallic_specular = 1.0
-metallic_texture = SubResource("MeshTexture_4v3td")
-
-[sub_resource type="FogMaterial" id="FogMaterial_i2oe5"]
-albedo = Color(0.337255, 0.180392, 0.34902, 1)
-
-[sub_resource type="Shader" id="Shader_pt3h2"]
-code = "shader_type spatial;
-
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
-
-void fragment() {
-	// Called for every pixel the material is visible on.
-}
-
-//void light() {
-	// Called for every pixel for every light affecting the material.
-	// Uncomment to replace the default light processing function with this one.
-//}
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uthdt"]
-render_priority = 0
-next_pass = SubResource("FogMaterial_i2oe5")
-shader = SubResource("Shader_pt3h2")
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_0ymw8"]
-material = SubResource("ShaderMaterial_uthdt")
-custom_aabb = AABB(12, 0, 0, 5, 5, 1)
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7yimj"]
+material = SubResource("StandardMaterial3D_v2ugs")
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_edsnb")
@@ -499,6 +469,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.09295e-05)
 shape = SubResource("CapsuleShape3D_m636m")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="player/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0645676, -0.0623417, 0.0132446)
-material_override = SubResource("StandardMaterial3D_m2i60")
-mesh = SubResource("CapsuleMesh_0ymw8")
+mesh = SubResource("CapsuleMesh_7yimj")

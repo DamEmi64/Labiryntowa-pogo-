@@ -1,0 +1,101 @@
+[gd_resource type="BehaviorTree" load_steps=20 format=3 uid="uid://b10gr3kk3ildn"]
+
+[ext_resource type="Script" path="res://ai/tasks/tp_map.gd" id="1_6pjgx"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_ypxay"]
+
+[sub_resource type="BTAction" id="BTAction_ysefb"]
+script = ExtResource("1_6pjgx")
+from_var = NodePath("FirstWall")
+to_var = NodePath("SecondWall")
+tp = "teleport"
+move_player_before = Vector3(0, 0, 3)
+
+[sub_resource type="BTAction" id="BTAction_rm5dv"]
+script = ExtResource("1_6pjgx")
+from_var = NodePath("SecondWall")
+to_var = NodePath("FirstWall")
+tp = "teleport2"
+move_player_before = Vector3(0, 0, -2)
+
+[sub_resource type="BTParallel" id="BTParallel_0p3hu"]
+children = [SubResource("BTAction_ysefb"), SubResource("BTAction_rm5dv")]
+
+[sub_resource type="BTAction" id="BTAction_swerp"]
+script = ExtResource("1_6pjgx")
+from_var = NodePath("SecondWall")
+to_var = NodePath("FourthWall")
+tp = "teleport3"
+move_player_before = Vector3(3, 0, 0)
+
+[sub_resource type="BTAction" id="BTAction_swjti"]
+script = ExtResource("1_6pjgx")
+from_var = NodePath("FourthWall")
+to_var = NodePath("SecondWall")
+tp = "teleport4"
+move_player_before = Vector3(-3, 0, 0)
+
+[sub_resource type="BTParallel" id="BTParallel_rtobw"]
+children = [SubResource("BTAction_swerp"), SubResource("BTAction_swjti")]
+
+[sub_resource type="BTAction" id="BTAction_7yr2m"]
+script = ExtResource("1_6pjgx")
+from_var = NodePath("FourthWall")
+to_var = NodePath("SixWall")
+tp = "teleport5"
+move_player_before = Vector3(0, 0, 3)
+
+[sub_resource type="BTAction" id="BTAction_i5cus"]
+script = ExtResource("1_6pjgx")
+from_var = NodePath("SixWall")
+to_var = NodePath("FourthWall")
+tp = "teleport6"
+move_player_before = Vector3(0, 0, -3)
+
+[sub_resource type="BTParallel" id="BTParallel_sgrsx"]
+children = [SubResource("BTAction_7yr2m"), SubResource("BTAction_i5cus")]
+
+[sub_resource type="BTAction" id="BTAction_bs438"]
+script = ExtResource("1_6pjgx")
+from_var = NodePath("SixWall")
+to_var = NodePath("FifthWall")
+tp = "teleport7"
+move_player_before = Vector3(3, 0, 0)
+
+[sub_resource type="BTAction" id="BTAction_qkomn"]
+script = ExtResource("1_6pjgx")
+from_var = NodePath("FifthWall")
+to_var = NodePath("SixWall")
+tp = "teleport8"
+move_player_before = Vector3(-3, 0, 0)
+
+[sub_resource type="BTParallel" id="BTParallel_g2r7u"]
+children = [SubResource("BTAction_bs438"), SubResource("BTAction_qkomn")]
+
+[sub_resource type="BTAction" id="BTAction_vx8i4"]
+script = ExtResource("1_6pjgx")
+from_var = NodePath("FifthWall")
+to_var = NodePath("ThirdWall")
+tp = "teleport9"
+move_player_before = Vector3(0, 0, 3)
+
+[sub_resource type="BTAction" id="BTAction_lwbse"]
+script = ExtResource("1_6pjgx")
+from_var = NodePath("ThirdWall")
+to_var = NodePath("FifthWall")
+tp = "teleport10"
+move_player_before = Vector3(0, 0, -3)
+
+[sub_resource type="BTParallel" id="BTParallel_o3u13"]
+children = [SubResource("BTAction_vx8i4"), SubResource("BTAction_lwbse")]
+
+[sub_resource type="BTParallel" id="BTParallel_dy5nh"]
+children = [SubResource("BTParallel_0p3hu"), SubResource("BTParallel_rtobw"), SubResource("BTParallel_sgrsx"), SubResource("BTParallel_g2r7u"), SubResource("BTParallel_o3u13")]
+
+[sub_resource type="BTRepeat" id="BTRepeat_mhhi1"]
+forever = true
+children = [SubResource("BTParallel_dy5nh")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_ypxay")
+root_task = SubResource("BTRepeat_mhhi1")

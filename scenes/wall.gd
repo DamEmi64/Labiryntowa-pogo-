@@ -12,4 +12,5 @@ func _process(delta):
 	pass
 
 func teleport():
-	get_node("Camera3D").make_currnt()
+	get_node("Camera3D").make_current()
+	get_node("player").can_move = true

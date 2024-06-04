@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c2w0a2jdowbbt"]
+[gd_scene load_steps=23 format=3 uid="uid://c2w0a2jdowbbt"]
 
 [ext_resource type="Script" path="res://scenes/nav.gd" id="1_2u62f"]
 [ext_resource type="Script" path="res://scenes/wall.gd" id="1_j7paa"]
@@ -45,41 +45,11 @@ size = Vector3(32, 32, 32)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6avgn"]
 
-[sub_resource type="MeshTexture" id="MeshTexture_l0lt0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s53oy"]
+albedo_color = Color(1, 1, 0, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uojf7"]
-metallic = 1.0
-metallic_specular = 1.0
-metallic_texture = SubResource("MeshTexture_l0lt0")
-
-[sub_resource type="FogMaterial" id="FogMaterial_phehr"]
-albedo = Color(0.337255, 0.180392, 0.34902, 1)
-
-[sub_resource type="Shader" id="Shader_aiy62"]
-code = "shader_type spatial;
-
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
-
-void fragment() {
-	// Called for every pixel the material is visible on.
-}
-
-//void light() {
-	// Called for every pixel for every light affecting the material.
-	// Uncomment to replace the default light processing function with this one.
-//}
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_m1ick"]
-render_priority = 0
-next_pass = SubResource("FogMaterial_phehr")
-shader = SubResource("Shader_aiy62")
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_akslr"]
-material = SubResource("ShaderMaterial_m1ick")
-custom_aabb = AABB(12, 0, 0, 5, 5, 1)
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1ihcw"]
+material = SubResource("StandardMaterial3D_s53oy")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cdg0k"]
 albedo_color = Color(0.364706, 0.345098, 0.113725, 1)
@@ -521,9 +491,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.09295e-05)
 shape = SubResource("CapsuleShape3D_6avgn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="player/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0645676, -0.0623417, 0.0132446)
-material_override = SubResource("StandardMaterial3D_uojf7")
-mesh = SubResource("CapsuleMesh_akslr")
+mesh = SubResource("CapsuleMesh_1ihcw")
 
 [node name="teleport" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.999756, 0, -0.0220941, 0, 1, 0, 0.0220941, 0, -0.999756, 0.92763, 16.2421, -15.6143)

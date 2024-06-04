@@ -1,11 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmkjo27t4hj2r"]
+[gd_scene load_steps=11 format=3 uid="uid://dmkjo27t4hj2r"]
 
 [ext_resource type="PackedScene" uid="uid://c2w0a2jdowbbt" path="res://scenes/first_wall.tscn" id="1_db3eu"]
+[ext_resource type="Script" path="res://scenes/global.gd" id="1_gj8t1"]
 [ext_resource type="PackedScene" uid="uid://bdai4ubo1skx" path="res://scenes/second_wall.tscn" id="2_oksa6"]
+[ext_resource type="BehaviorTree" uid="uid://b10gr3kk3ildn" path="res://ai/global.tres" id="3_sct0u"]
+[ext_resource type="PackedScene" uid="uid://ctqjqjstobqhx" path="res://scenes/control.tscn" id="4_ow2cw"]
+[ext_resource type="PackedScene" uid="uid://ywat56uhtvmn" path="res://ai/third_wall.tscn" id="5_2obct"]
+[ext_resource type="PackedScene" uid="uid://c0r8grynqexs0" path="res://scenes/fourth_wall.tscn" id="6_14rso"]
+[ext_resource type="PackedScene" uid="uid://iv187ywfw0ob" path="res://scenes/fifth_wall.tscn" id="7_miaeb"]
+[ext_resource type="PackedScene" uid="uid://ba5g1q1cia413" path="res://scenes/six_wall.tscn" id="8_rdb5k"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_m4jib"]
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_gj8t1")
+
+[node name="BTScene" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("3_sct0u")
+blackboard_plan = SubResource("BlackboardPlan_m4jib")
+monitor_performance = true
+
+[node name="Control" parent="." instance=ExtResource("4_ow2cw")]
 
 [node name="FirstWall" parent="." instance=ExtResource("1_db3eu")]
 
 [node name="SecondWall" parent="." instance=ExtResource("2_oksa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.0422, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1025.95, 0, 0)
+
+[node name="ThirdWall" parent="." instance=ExtResource("5_2obct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -649.063)
+
+[node name="FourthWall" parent="." instance=ExtResource("6_14rso")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 508.034, 0, 0)
+
+[node name="FifthWall" parent="." instance=ExtResource("7_miaeb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 525.981, 0, -670.577)
+
+[node name="SixWall" parent="." instance=ExtResource("8_rdb5k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1023.43, 0, -635.963)
