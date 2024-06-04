@@ -8,9 +8,13 @@ const JUMP_VELOCITY = 4.5
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var collision_obj : Object
 
+var time_for_tp = 0
+
+var can_move = false
+
 func _physics_process(delta):
 	#If no lives stop moving
-	if Global.lifes <=0:
+	if Global.lifes <=0 || not can_move:
 		return
 	# Add the gravity.
 	if not is_on_floor():

@@ -1,0 +1,51 @@
+[gd_resource type="BehaviorTree" load_steps=13 format=3 uid="uid://d12237n3l0nbo"]
+
+[ext_resource type="Script" path="res://ai/tasks/check_collision.gd" id="1_r3xk3"]
+[ext_resource type="Script" path="res://ai/tasks/change_scene.gd" id="2_407qg"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_4shsq"]
+
+[sub_resource type="BTAction" id="BTAction_glhgk"]
+script = ExtResource("1_r3xk3")
+tolerance = 1.0
+target_var = NodePath("teleport8")
+player_var = NodePath("player")
+
+[sub_resource type="BTAction" id="BTAction_qgavk"]
+script = ExtResource("2_407qg")
+scene_path = "res://scenes/six_wall.tscn"
+player_var = NodePath("player")
+teleport_var = NodePath("teleport8")
+
+[sub_resource type="BTSequence" id="BTSequence_a2hyj"]
+children = [SubResource("BTAction_glhgk"), SubResource("BTAction_qgavk")]
+
+[sub_resource type="BTRepeat" id="BTRepeat_5c7ms"]
+forever = true
+children = [SubResource("BTSequence_a2hyj")]
+
+[sub_resource type="BTAction" id="BTAction_gths5"]
+script = ExtResource("1_r3xk3")
+tolerance = 1.0
+target_var = NodePath("teleport9")
+player_var = NodePath("player")
+
+[sub_resource type="BTAction" id="BTAction_ovcfx"]
+script = ExtResource("2_407qg")
+scene_path = "res://scenes/third_wall.tscn"
+player_var = NodePath("player")
+teleport_var = NodePath("teleport9")
+
+[sub_resource type="BTSequence" id="BTSequence_u5c0q"]
+children = [SubResource("BTAction_gths5"), SubResource("BTAction_ovcfx")]
+
+[sub_resource type="BTRepeat" id="BTRepeat_tudpc"]
+forever = true
+children = [SubResource("BTSequence_u5c0q")]
+
+[sub_resource type="BTParallel" id="BTParallel_esorp"]
+children = [SubResource("BTRepeat_5c7ms"), SubResource("BTRepeat_tudpc")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_4shsq")
+root_task = SubResource("BTParallel_esorp")

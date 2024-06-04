@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmkjo27t4hj2r"]
+
+[ext_resource type="PackedScene" uid="uid://c2w0a2jdowbbt" path="res://scenes/first_wall.tscn" id="1_db3eu"]
+[ext_resource type="PackedScene" uid="uid://bdai4ubo1skx" path="res://scenes/second_wall.tscn" id="2_oksa6"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="FirstWall" parent="." instance=ExtResource("1_db3eu")]
+
+[node name="SecondWall" parent="." instance=ExtResource("2_oksa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.0422, 0, 0)

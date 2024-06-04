@@ -4,6 +4,7 @@
 font_italic = true
 font_weight = 450
 font_stretch = 125
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_2l4ge"]
 font = SubResource("SystemFont_jko2x")
@@ -21,7 +22,7 @@ func _ready():
 	pass
 	
 func _button_pressed():
-	get_tree().change_scene_to_file(\"res://scenes/scene.tscn\")
+	get_tree().change_scene_to_file(\"res://scenes/global.tscn\")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

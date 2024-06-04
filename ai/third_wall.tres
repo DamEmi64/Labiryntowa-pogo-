@@ -1,0 +1,32 @@
+[gd_resource type="BehaviorTree" load_steps=9 format=3 uid="uid://8jj2r1co311r"]
+
+[ext_resource type="Script" path="res://ai/tasks/check_collision.gd" id="1_w6p1i"]
+[ext_resource type="Script" path="res://ai/tasks/change_scene.gd" id="2_rptpr"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_12k0t"]
+
+[sub_resource type="BTAction" id="BTAction_0xvgw"]
+script = ExtResource("1_w6p1i")
+tolerance = 1.0
+target_var = NodePath("teleport10")
+player_var = NodePath("player")
+
+[sub_resource type="BTAction" id="BTAction_1up0o"]
+script = ExtResource("2_rptpr")
+scene_path = "res://scenes/fifth_wall.tscn"
+player_var = NodePath("player")
+teleport_var = NodePath("teleport10")
+
+[sub_resource type="BTSequence" id="BTSequence_li5jv"]
+children = [SubResource("BTAction_0xvgw"), SubResource("BTAction_1up0o")]
+
+[sub_resource type="BTRepeat" id="BTRepeat_blexc"]
+forever = true
+children = [SubResource("BTSequence_li5jv")]
+
+[sub_resource type="BTParallel" id="BTParallel_0sb35"]
+children = [SubResource("BTRepeat_blexc")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_12k0t")
+root_task = SubResource("BTParallel_0sb35")
