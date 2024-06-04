@@ -14,3 +14,4 @@ func _process(delta):
 func teleport():
 	get_node("Camera3D").make_current()
 	get_node("player").can_move = true
+	visible = true

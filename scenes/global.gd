@@ -9,6 +9,13 @@ func _ready():
 	get_node("FourthWall/player").can_move = false
 	get_node("FifthWall/player").can_move = false
 	get_node("SixWall/player").can_move = false
+	
+	get_node("FirstWall").visible = true
+	get_node("SecondWall").visible = false
+	get_node("ThirdWall").visible = false
+	get_node("FourthWall").visible = false
+	get_node("FifthWall").visible = false
+	get_node("SixWall").visible = false
 	pass # Replace with function body.
 
 

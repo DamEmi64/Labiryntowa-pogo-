@@ -17,11 +17,8 @@ var timer = 0.0
 func _generate_name() -> String:
 	return "Go to  " + target_var.get_name(0) + " position"
 
-# Called to initialize the task.
-func _setup() -> void:
-	pos = agent.get_node(target_var).global_position
-
 func _tick(_delta: float) -> Status:	
+	pos = agent.get_node(target_var).global_position
 	var node = agent.get_node(node_var)
 	if node.global_position.distance_to(pos) < tolerance:
 		return SUCCESS

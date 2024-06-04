@@ -16,14 +16,12 @@ var timer = 0.0
 var node
 var target
 
-func _setup() -> void:
-	target = agent.get_node(target_var)
-	node = agent.get_node(node_var)
-
 func _generate_name() -> String:
 	return "Chase " + target_var.get_name(0)
 
 func _tick(_delta: float) -> Status:
+	target = agent.get_node(target_var)
+	node = agent.get_node(node_var)
 	
 	if timer == time:
 		timer = 0

@@ -8,9 +8,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
-	var player = get_node("/root/"+get_tree().current_scene.name+"/player")
-	if global_position.distance_to(player.global_position) < 1:
+	var player = get_parent_node_3d().get_node("player")
+	if player != null and player.can_move and global_position.distance_to(player.global_position) < 1:
 		Global.points += 1
 		queue_free()
 	pass

@@ -7,7 +7,7 @@ func _generate_name() -> String:
 
 func _tick(_delta: float) -> Status:
 	var node = agent.get_node(node_var)
-	if node.chasing:
+	if node != null and node.chasing:
 		return SUCCESS
 	else:
 		return FAILURE

@@ -12,7 +12,7 @@
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_m4jib"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Global" type="Node3D"]
 script = ExtResource("1_gj8t1")
 
 [node name="BTScene" type="BTPlayer" parent="."]
@@ -23,18 +23,19 @@ monitor_performance = true
 [node name="Control" parent="." instance=ExtResource("4_ow2cw")]
 
 [node name="FirstWall" parent="." instance=ExtResource("1_db3eu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 505.386, 89.8085, 0)
 
 [node name="SecondWall" parent="." instance=ExtResource("2_oksa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1025.95, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 501.226, 267.398, 0)
 
 [node name="ThirdWall" parent="." instance=ExtResource("5_2obct")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -649.063)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 499.132, 180.942, 11.8683)
 
 [node name="FourthWall" parent="." instance=ExtResource("6_14rso")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 508.034, 0, 0)
 
 [node name="FifthWall" parent="." instance=ExtResource("7_miaeb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 525.981, 0, -670.577)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 501.238, -83.0272, 12.182)
 
 [node name="SixWall" parent="." instance=ExtResource("8_rdb5k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1023.43, 0, -635.963)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 501.855, -177.939, -2.95115)

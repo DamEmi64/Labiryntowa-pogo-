@@ -18,6 +18,7 @@ func _tick(_delta: float) -> Status:
 					var old_player = agent.get_node(from_var).get_node("player")
 					old_player.global_position = old_player.global_position + move_player_before
 					old_player.can_move = false
+					agent.get_node(from_var).visible = false
 					agent.get_node(to_var).teleport()
 	return RUNNING
 	
