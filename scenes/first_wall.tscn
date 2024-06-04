@@ -1,11 +1,14 @@
-[gd_scene load_steps=23 format=3 uid="uid://c2w0a2jdowbbt"]
+[gd_scene load_steps=26 format=3 uid="uid://c2w0a2jdowbbt"]
 
 [ext_resource type="Script" path="res://scenes/nav.gd" id="1_2u62f"]
 [ext_resource type="Script" path="res://scenes/wall.gd" id="1_j7paa"]
 [ext_resource type="Script" path="res://player.gd" id="2_ajlxf"]
 [ext_resource type="Script" path="res://ai/teleport.gd" id="4_u0u81"]
+[ext_resource type="Script" path="res://Point.gd" id="5_yg4gp"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_abvus"]
+vertices = PackedVector3Array(-6.44303, 6.4537, -11.766, -1.44303, 6.4537, -11.766, -6.44303, 6.4537, -12.016, -15.443, 6.4537, -15.766, -15.443, 6.4537, -15.016, -14.943, 6.4537, -15.516, -10.943, 6.4537, -15.266, -10.943, 6.4537, -10.266, -10.443, 6.4537, -15.516, -6.94303, 6.4537, -10.266, -6.44303, 6.4537, -11.766, -6.44303, 6.4537, -12.016, -6.94303, 6.4537, -15.266, -6.94303, 6.4537, -10.266, -6.44303, 6.4537, -12.016, -6.44303, 6.4537, -15.516, -15.443, 6.4537, -15.766, -10.443, 6.4537, -15.516, -6.44303, 6.4537, -15.516, -10.443, 6.4537, -15.516, -6.94303, 6.4537, -15.266, -6.44303, 6.4537, -15.516, -14.943, 6.4537, -15.516, -10.943, 6.4537, -15.266, -10.443, 6.4537, -15.516, -15.443, 6.4537, -15.766, -15.443, 6.4537, -15.766, -6.44303, 6.4537, -15.516, -0.193029, 6.4537, -15.516, 15.307, 6.4537, -12.016, 10.057, 6.4537, -11.766, 15.557, 6.4537, -11.516, 15.807, 6.4537, -15.766, 4.80697, 6.4537, -15.516, 15.557, 6.4537, -15.016, 15.557, 6.4537, -15.016, 15.307, 6.4537, -12.016, 15.557, 6.4537, -11.516, 15.557, 6.4537, -11.516, 15.807, 6.4537, -0.766033, 15.807, 6.4537, -15.766, 15.557, 6.4537, -15.016, 1.55697, 4.4537, -14.516, 1.30697, 4.4537, -15.516, 0.806971, 4.4537, -15.516, 0.556971, 4.4537, -14.516, 0.556971, 4.4537, -13.016, 0.556971, 4.4537, -14.516, -0.693029, 4.4537, -13.016, -0.443029, 4.4537, -11.016, 0.306971, 4.4537, -11.016, 7.30697, 4.4537, -13.016, 9.30697, 4.4537, -13.016, 14.557, 4.4537, -14.266, 1.55697, 4.4537, -14.516, 9.30697, 4.4537, -13.016, 14.557, 4.4537, -13.016, 14.557, 4.4537, -14.266, 7.30697, 4.4537, -13.016, 7.55697, 4.4537, -11.266, 9.05697, 4.4537, -11.266, 9.30697, 4.4537, -13.016, 0.556971, 4.4537, -13.016, 7.30697, 4.4537, -13.016, 1.55697, 4.4537, -14.516, 0.556971, 4.4537, -14.516, -5.69303, 4.4537, -14.516, -5.69303, 4.4537, -13.016, -0.693029, 4.4537, -13.016, 0.556971, 4.4537, -14.516, -0.943029, 6.4537, 12.234, -6.19303, 6.4537, 12.234, -0.943029, 6.4537, 12.484, -12.193, 6.4537, 15.234, -12.443, 6.4537, 9.98397, -12.693, 6.4537, 14.984, -9.94303, 6.4537, 4.48397, -9.44303, 6.4537, 9.73397, -9.44303, 6.4537, 4.23397, -15.193, 6.4537, -5.51603, -10.193, 6.4537, -5.76603, -15.443, 6.4537, -6.01603, -15.443, 6.4537, -2.01603, -9.94303, 6.4537, -2.51603, -15.443, 6.4537, -2.76603, 5.30697, 6.4537, 15.484, 5.05697, 6.4537, 14.734, 4.55697, 6.4537, 15.234, -0.443029, 6.4537, 10.484, -0.943029, 6.4537, 12.234, -0.943029, 6.4537, 12.484, -0.193029, 6.4537, 15.234, -0.443029, 6.4537, 10.484, -0.943029, 6.4537, 12.484, -0.943029, 6.4537, 15.234, -15.693, 6.4537, 15.484, -15.443, 6.4537, 14.984, -15.443, 6.4537, 4.73397, -15.443, 6.4537, -2.76603, -15.193, 6.4537, -5.51603, -15.443, 6.4537, -6.01603, -12.193, 6.4537, 15.234, -12.693, 6.4537, 14.984, -15.443, 6.4537, 14.984, -15.693, 6.4537, 15.484, 5.30697, 6.4537, 15.484, 4.55697, 6.4537, 15.234, -0.193029, 6.4537, 15.234, -9.94303, 6.4537, 4.48397, -9.44303, 6.4537, 4.23397, -15.443, 6.4537, 3.98397, -15.443, 6.4537, 4.73397, -15.693, 6.4537, 15.484, -15.443, 6.4537, 4.73397, -15.443, 6.4537, 3.98397, 5.30697, 6.4537, 15.484, -0.193029, 6.4537, 15.234, -0.943029, 6.4537, 15.234, -15.443, 6.4537, -2.76603, -15.443, 6.4537, -6.01603, -15.693, 6.4537, -14.766, -15.443, 6.4537, -2.01603, -15.443, 6.4537, -2.76603, -15.693, 6.4537, -14.766, -15.693, 6.4537, 15.484, 5.30697, 6.4537, 15.484, -0.943029, 6.4537, 15.234, -12.193, 6.4537, 15.234, -15.693, 6.4537, 15.484, -15.443, 6.4537, 3.98397, -15.443, 6.4537, -2.01603, -15.693, 6.4537, -14.766, -7.94303, 4.4537, -8.26603, -6.69303, 4.4537, -8.26603, -6.69303, 4.4537, -9.26603, -7.94303, 4.4537, -9.51603, -11.693, 4.4537, -9.26603, -11.943, 4.4537, -14.516, -14.443, 4.4537, -14.516, -14.443, 4.4537, -6.76603, -9.69303, 4.4537, -6.76603, -8.19303, 4.4537, -7.01603, -7.94303, 4.4537, -8.26603, -9.69303, 4.4537, -6.76603, -7.94303, 4.4537, -8.26603, -7.94303, 4.4537, -9.51603, -9.69303, 4.4537, -9.51603, -11.693, 4.4537, -9.26603, -14.443, 4.4537, -6.76603, -7.94303, 4.4537, -9.51603, -7.94303, 4.4537, -14.516, -9.69303, 4.4537, -14.516, -9.69303, 4.4537, -9.51603, 8.05697, 4.4537, -0.516033, 8.30697, 4.4537, 0.483967, 8.55697, 4.4537, 0.483967, 8.80697, 4.4537, -3.26603, -5.69303, 4.4537, -9.51603, -6.69303, 4.4537, -9.26603, -6.69303, 4.4537, -8.26603, -3.19303, 4.4537, -8.26603, -2.94303, 4.4537, -9.26603, 10.307, 4.4537, -9.26603, 10.307, 4.4537, -10.766, 9.30697, 4.4537, -10.766, 9.30697, 4.4537, -10.766, 9.05697, 4.4537, -11.266, 7.55697, 4.4537, -11.266, 2.30697, 4.4537, -2.26603, 1.55697, 4.4537, -2.01603, 1.55697, 4.4537, -0.516033, 8.05697, 4.4537, -0.516033, 5.55697, 4.4537, -2.01603, 3.55697, 4.4537, -2.26603, 9.30697, 4.4537, -10.766, 7.55697, 4.4537, -11.266, 7.30697, 4.4537, -10.766, 10.307, 4.4537, -9.26603, -1.19303, 4.4537, -9.26603, -0.943029, 4.4537, -7.26603, 0.0569706, 4.4537, -7.26603, 0.306971, 4.4537, -9.26603, 0.306971, 4.4537, -11.016, -0.443029, 4.4537, -11.016, 0.306971, 4.4537, -11.016, 0.306971, 4.4537, -9.26603, 2.30697, 4.4537, -9.01603, 3.55697, 4.4537, -9.01603, 10.307, 4.4537, -9.26603, 7.30697, 4.4537, -10.766, 8.80697, 4.4537, -3.26603, 5.80697, 4.4537, -3.26603, 5.55697, 4.4537, -2.01603, 8.05697, 4.4537, -0.516033, 2.30697, 4.4537, -9.01603, 2.30697, 4.4537, -2.26603, 3.55697, 4.4537, -2.26603, 3.55697, 4.4537, -9.01603, -0.443029, 4.4537, -11.016, -5.69303, 4.4537, -10.766, -5.69303, 4.4537, -9.51603, -2.94303, 4.4537, -9.26603, -1.19303, 4.4537, -9.26603, 10.307, 4.4537, -10.766, 10.307, 4.4537, -9.26603, 11.307, 4.4537, -9.01603, 14.557, 4.4537, -10.766, 10.807, 4.4537, -5.76603, 11.057, 4.4537, -0.766033, 14.307, 4.4537, -0.766033, 14.557, 4.4537, -10.766, 11.057, 4.4537, -7.01603, 14.557, 4.4537, -10.766, 11.307, 4.4537, -9.01603, 11.057, 4.4537, -7.01603, 5.80697, 4.4537, -7.01603, 5.80697, 4.4537, -5.51603, 10.807, 4.4537, -5.76603, 11.057, 4.4537, -7.01603, -2.44303, 6.4537, -7.26603, -7.19303, 6.4537, -7.26603, -2.44303, 6.4537, -7.01603, -1.94303, 6.4537, -8.26603, -2.44303, 6.4537, -7.26603, -2.44303, 6.4537, -7.01603, -2.19303, 6.4537, -2.76603, -1.94303, 6.4537, -2.26603, -7.19303, 6.4537, 0.733967, -9.94303, 6.4537, 0.983967, -4.69303, 6.4537, 1.23397, -6.94303, 6.4537, 0.733967, -6.69303, 6.4537, -2.51603, -6.94303, 6.4537, -2.01603, -1.94303, 6.4537, -2.26603, -2.19303, 6.4537, -2.76603, -7.19303, 6.4537, 0.733967, -6.94303, 6.4537, 0.733967, -6.94303, 6.4537, -2.01603, -7.19303, 6.4537, -4.01603, -6.69303, 6.4537, -2.51603, -7.19303, 6.4537, -4.01603, -6.94303, 6.4537, -2.01603, 4.80697, 6.9537, -7.76603, 10.307, 6.4537, -8.26603, 4.55697, 6.9537, -8.26603, 15.307, 6.4537, 3.23397, 12.807, 6.4537, 3.48397, 15.307, 6.4537, 3.98397, 9.55697, 6.4537, 9.98397, 9.55697, 6.4537, 11.734, 10.057, 6.4537, 10.734, 10.057, 6.4537, 10.484, 15.557, 6.4537, -0.516033, 15.307, 6.4537, 3.23397, 15.307, 6.4537, 3.98397, 5.05697, 6.7037, -4.51603, 4.80697, 6.9537, -7.76603, 4.55697, 6.9537, -8.26603, 4.55697, 6.7037, -3.01603, 5.05697, 6.7037, -4.26603, 15.307, 6.4537, 10.234, 15.557, 6.4537, 15.484, 15.557, 6.4537, -0.516033, 15.307, 6.4537, 3.98397, 10.307, 6.4537, 0.233967, 9.55697, 6.4537, 0.483967, 15.307, 6.4537, 0.733967, 15.057, 6.4537, 0.233967, 5.05697, 6.7037, -4.51603, 5.05697, 6.7037, -4.26603, 9.55697, 6.4537, -4.26603, 10.057, 6.4537, -4.76603, 15.557, 6.4537, -0.516033, 15.057, 6.4537, 0.233967, 15.307, 6.4537, 0.733967, 10.307, 6.4537, 0.233967, 10.057, 6.4537, -4.76603, 9.55697, 6.4537, -4.26603, 9.55697, 6.4537, 0.483967, 15.557, 6.4537, -0.516033, 15.307, 6.4537, 0.733967, 15.307, 6.4537, 3.23397, 15.057, 6.4537, 10.734, 15.057, 6.4537, 15.484, 15.557, 6.4537, 15.484, 15.307, 6.4537, 10.234, 10.057, 6.4537, 10.484, 10.057, 6.4537, 10.734, 15.057, 6.4537, 10.734, 15.307, 6.4537, 10.234, 0.306971, 4.4537, 0.733967, 0.556971, 4.4537, 1.23397, 1.05697, 4.4537, 0.983967, 1.05697, 4.4537, -0.266033, -10.693, 4.4537, 2.23397, -10.943, 4.4537, 1.73397, -11.193, 4.4537, 3.23397, -8.44303, 4.4537, 3.73397, -8.44303, 4.4537, 10.234, -6.94303, 4.4537, 10.234, -6.94303, 4.4537, 3.48397, 1.05697, 4.4537, -0.266033, 1.55697, 4.4537, -0.516033, 1.55697, 4.4537, -2.01603, -10.693, 4.4537, 2.23397, -11.193, 4.4537, 3.23397, -8.94303, 4.4537, 3.23397, 1.05697, 4.4537, -0.266033, 1.55697, 4.4537, -2.01603, 0.0569706, 4.4537, -2.26603, -0.943029, 4.4537, -1.51603, -1.44303, 4.4537, 0.733967, 0.306971, 4.4537, 0.733967, -3.94303, 4.4537, 2.23397, -10.693, 4.4537, 2.23397, -8.94303, 4.4537, 3.23397, -6.94303, 4.4537, 3.48397, -1.69303, 4.4537, 3.23397, -5.94303, 4.4537, -1.26603, -5.94303, 4.4537, -0.0160332, -3.69303, 4.4537, 0.233967, -0.943029, 4.4537, -1.51603, -1.69303, 4.4537, 3.23397, -1.44303, 4.4537, 0.733967, -3.94303, 4.4537, 2.23397, -6.94303, 4.4537, 3.48397, -8.94303, 4.4537, 3.23397, -8.44303, 4.4537, 3.73397, -0.943029, 4.4537, -1.51603, -3.69303, 4.4537, 0.233967, -3.94303, 4.4537, 2.23397, -1.44303, 4.4537, 0.733967, 0.0569706, 4.4537, -2.26603, 0.0569706, 4.4537, -7.26603, -0.943029, 4.4537, -7.26603, -0.943029, 4.4537, -1.51603, -8.19303, 4.4537, -7.01603, -9.69303, 4.4537, -6.76603, -9.19303, 4.4537, -6.51603, -7.94303, 4.4537, -6.01603, -8.19303, 4.4537, -7.01603, -9.19303, 4.4537, -6.51603, -9.44303, 4.4537, -4.51603, -8.94303, 4.4537, -3.26603, -7.94303, 4.4537, -5.01603, -9.44303, 4.4537, -4.51603, -14.443, 4.4537, -4.51603, -14.443, 4.4537, -3.51603, -8.94303, 4.4537, -3.26603, -11.193, 4.4537, 3.23397, -10.943, 4.4537, 1.73397, -10.693, 4.4537, -0.0160332, -14.443, 4.4537, -1.26603, -14.443, 4.4537, 3.23397, -6.19303, 4.4537, -5.01603, -5.94303, 4.4537, -3.51603, -3.19303, 4.4537, -3.51603, -3.19303, 4.4537, -6.01603, -8.94303, 4.4537, -3.26603, -9.19303, 4.4537, -1.26603, -8.19303, 4.4537, -0.0160332, -7.94303, 4.4537, -5.01603, -6.19303, 4.4537, -5.01603, -3.19303, 4.4537, -6.01603, -7.94303, 4.4537, -6.01603, -7.94303, 4.4537, -5.01603, -9.19303, 4.4537, -1.26603, -14.443, 4.4537, -1.26603, -10.693, 4.4537, -0.0160332, -8.19303, 4.4537, -0.0160332, 1.30697, 4.4537, 1.73397, 1.05697, 4.4537, 0.983967, 0.556971, 4.4537, 1.23397, 0.556971, 4.4537, 3.98397, 1.05697, 4.4537, 2.73397, 8.80697, 4.4537, 1.48397, 8.55697, 4.4537, 0.483967, 8.30697, 4.4537, 0.483967, 8.05697, 4.4537, 1.73397, 7.80697, 4.4537, 2.48397, 8.05697, 4.4537, 1.73397, 1.30697, 4.4537, 1.73397, 1.05697, 4.4537, 2.73397, 7.55697, 4.4537, 4.73397, 8.30697, 4.4537, 5.98397, 8.55697, 4.4537, 5.48397, 8.05697, 4.4537, 4.48397, 10.557, 4.4537, 5.73397, 14.307, 4.4537, 4.73397, 9.05697, 4.4537, 4.98397, 8.55697, 4.4537, 5.48397, 0.556971, 4.4537, 3.98397, 0.806971, 4.4537, 3.98397, 1.05697, 4.4537, 2.73397, 10.557, 4.4537, 5.73397, 10.557, 4.4537, 9.48397, 14.307, 4.4537, 9.48397, 14.307, 4.4537, 4.73397, 7.80697, 4.4537, 2.48397, 8.80697, 4.4537, 2.98397, 14.307, 4.4537, 2.48397, 14.307, 4.4537, 1.48397, 8.80697, 4.4537, 1.48397, 8.05697, 4.4537, 1.73397, 8.80697, 4.4537, 2.98397, 7.80697, 4.4537, 2.48397, 8.05697, 4.4537, 4.48397, 8.55697, 4.4537, 5.48397, 9.05697, 4.4537, 4.98397, -5.94303, 6.4537, 4.23397, -5.94303, 6.4537, 9.73397, -5.44303, 6.4537, 4.48397, -0.943029, 6.4537, 4.48397, -0.443029, 6.4537, 6.98397, -0.443029, 6.4537, 1.73397, -0.943029, 6.4537, 4.23397, -5.44303, 6.4537, 4.48397, -0.943029, 6.4537, 4.48397, -0.943029, 6.4537, 4.23397, -5.94303, 6.4537, 4.23397, 1.05697, 4.4537, 4.98397, 0.806971, 4.4537, 3.98397, 0.556971, 4.4537, 3.98397, 0.556971, 4.4537, 7.73397, -0.443029, 4.4537, 7.98397, -0.443029, 4.4537, 9.48397, 0.556971, 4.4537, 9.73397, 0.556971, 4.4537, 7.73397, 0.556971, 4.4537, 9.73397, 0.556971, 4.4537, 14.234, 4.05697, 4.4537, 14.234, 4.05697, 4.4537, 9.73397, 0.556971, 4.4537, 9.73397, 4.05697, 4.4537, 9.73397, 4.55697, 4.4537, 9.48397, 4.55697, 4.4537, 4.98397, 1.05697, 4.4537, 4.98397, 0.556971, 4.4537, 7.73397, 14.307, 4.4537, 11.734, 10.807, 4.4537, 11.734, 10.557, 4.4537, 12.734, 14.307, 4.4537, 14.484, 8.30697, 4.4537, 5.98397, 7.55697, 4.4537, 4.73397, 4.55697, 4.4537, 4.98397, 4.55697, 4.4537, 9.48397, 6.30697, 4.4537, 9.73397, 8.55697, 4.4537, 12.484, 8.30697, 4.4537, 5.98397, 6.30697, 4.4537, 9.73397, 6.30697, 4.4537, 14.484, 6.30697, 4.4537, 14.484, 14.307, 4.4537, 14.484, 10.557, 4.4537, 12.734, 8.55697, 4.4537, 12.484, -6.69303, 4.4537, 10.734, -6.94303, 4.4537, 10.234, -8.44303, 4.4537, 10.234, -8.69303, 4.4537, 10.734, -7.44303, 4.4537, 11.734, -6.69303, 4.4537, 11.234, -11.443, 4.4537, 9.23397, -11.443, 4.4537, 14.234, -10.693, 4.4537, 10.484, -10.693, 4.4537, 5.48397, -0.443029, 4.4537, 9.48397, -0.443029, 4.4537, 7.98397, -1.69303, 4.4537, 7.73397, -1.69303, 4.4537, 9.73397, -1.69303, 4.4537, 14.234, -1.69303, 4.4537, 13.484, -7.19303, 4.4537, 13.734, -11.443, 4.4537, 14.234, -1.69303, 4.4537, 7.73397, -1.69303, 4.4537, 5.48397, -4.69303, 4.4537, 5.48397, -1.69303, 4.4537, 7.73397, -4.69303, 4.4537, 5.48397, -4.69303, 4.4537, 10.484, -1.69303, 4.4537, 9.73397, -7.19303, 4.4537, 13.734, -7.44303, 4.4537, 11.734, -8.69303, 4.4537, 10.734, -10.693, 4.4537, 10.484, -11.443, 4.4537, 14.234, -1.69303, 4.4537, 11.234, -1.69303, 4.4537, 9.73397, -4.69303, 4.4537, 10.484, -6.69303, 4.4537, 11.234, -10.693, 4.4537, 5.48397, -14.443, 4.4537, 5.48397, -13.443, 4.4537, 8.98397, -11.443, 4.4537, 9.23397, -6.69303, 4.4537, 11.234, -4.69303, 4.4537, 10.484, -6.69303, 4.4537, 10.734, -14.443, 4.4537, 14.234, -13.693, 4.4537, 14.234, -13.443, 4.4537, 8.98397, -14.443, 4.4537, 5.48397)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Array(8, 7, 6), PackedInt32Array(11, 10, 9), PackedInt32Array(15, 14, 12), PackedInt32Array(12, 14, 13), PackedInt32Array(18, 17, 16), PackedInt32Array(21, 20, 19), PackedInt32Array(23, 22, 24), PackedInt32Array(24, 22, 25), PackedInt32Array(28, 27, 26), PackedInt32Array(31, 30, 29), PackedInt32Array(34, 33, 32), PackedInt32Array(36, 35, 37), PackedInt32Array(41, 40, 38), PackedInt32Array(38, 40, 39), PackedInt32Array(43, 42, 44), PackedInt32Array(44, 42, 45), PackedInt32Array(47, 46, 48), PackedInt32Array(48, 46, 50), PackedInt32Array(48, 50, 49), PackedInt32Array(52, 51, 53), PackedInt32Array(53, 51, 54), PackedInt32Array(57, 56, 55), PackedInt32Array(59, 58, 60), PackedInt32Array(60, 58, 61), PackedInt32Array(65, 64, 62), PackedInt32Array(62, 64, 63), PackedInt32Array(67, 66, 68), PackedInt32Array(68, 66, 69), PackedInt32Array(72, 71, 70), PackedInt32Array(75, 74, 73), PackedInt32Array(78, 77, 76), PackedInt32Array(81, 80, 79), PackedInt32Array(84, 83, 82), PackedInt32Array(87, 86, 85), PackedInt32Array(90, 89, 88), PackedInt32Array(94, 93, 91), PackedInt32Array(91, 93, 92), PackedInt32Array(97, 96, 95), PackedInt32Array(100, 99, 98), PackedInt32Array(103, 102, 104), PackedInt32Array(104, 102, 101), PackedInt32Array(107, 106, 105), PackedInt32Array(111, 110, 108), PackedInt32Array(108, 110, 109), PackedInt32Array(114, 113, 112), PackedInt32Array(117, 116, 115), PackedInt32Array(120, 119, 118), PackedInt32Array(123, 122, 121), PackedInt32Array(127, 126, 124), PackedInt32Array(124, 126, 125), PackedInt32Array(129, 128, 130), PackedInt32Array(130, 128, 131), PackedInt32Array(133, 132, 134), PackedInt32Array(134, 132, 135), PackedInt32Array(137, 136, 138), PackedInt32Array(138, 136, 139), PackedInt32Array(142, 141, 140), PackedInt32Array(145, 144, 146), PackedInt32Array(146, 144, 143), PackedInt32Array(146, 143, 147), PackedInt32Array(147, 143, 148), PackedInt32Array(152, 151, 149), PackedInt32Array(149, 151, 150), PackedInt32Array(154, 153, 155), PackedInt32Array(155, 153, 156), PackedInt32Array(158, 157, 159), PackedInt32Array(159, 157, 160), PackedInt32Array(160, 157, 161), PackedInt32Array(164, 163, 162), PackedInt32Array(167, 166, 165), PackedInt32Array(168, 173, 169), PackedInt32Array(169, 173, 170), PackedInt32Array(170, 173, 172), PackedInt32Array(170, 172, 171), PackedInt32Array(175, 174, 176), PackedInt32Array(176, 174, 177), PackedInt32Array(182, 181, 183), PackedInt32Array(183, 181, 178), PackedInt32Array(178, 181, 180), PackedInt32Array(178, 180, 179), PackedInt32Array(186, 185, 187), PackedInt32Array(187, 185, 184), PackedInt32Array(187, 184, 189), PackedInt32Array(187, 189, 188), PackedInt32Array(192, 191, 193), PackedInt32Array(193, 191, 190), PackedInt32Array(197, 196, 194), PackedInt32Array(194, 196, 195), PackedInt32Array(202, 201, 198), PackedInt32Array(198, 201, 200), PackedInt32Array(198, 200, 199), PackedInt32Array(204, 203, 205), PackedInt32Array(205, 203, 206), PackedInt32Array(207, 211, 208), PackedInt32Array(208, 211, 209), PackedInt32Array(209, 211, 210), PackedInt32Array(214, 213, 212), PackedInt32Array(216, 215, 217), PackedInt32Array(217, 215, 218), PackedInt32Array(221, 220, 219), PackedInt32Array(223, 222, 224), PackedInt32Array(224, 222, 225), PackedInt32Array(225, 222, 226), PackedInt32Array(230, 229, 227), PackedInt32Array(227, 229, 228), PackedInt32Array(234, 233, 231), PackedInt32Array(231, 233, 232), PackedInt32Array(236, 235, 237), PackedInt32Array(237, 235, 238), PackedInt32Array(241, 240, 239), PackedInt32Array(244, 243, 242), PackedInt32Array(247, 246, 245), PackedInt32Array(251, 250, 248), PackedInt32Array(248, 250, 249), PackedInt32Array(254, 253, 252), PackedInt32Array(259, 258, 255), PackedInt32Array(255, 258, 256), PackedInt32Array(256, 258, 257), PackedInt32Array(263, 262, 260), PackedInt32Array(260, 262, 261), PackedInt32Array(267, 266, 264), PackedInt32Array(264, 266, 265), PackedInt32Array(269, 268, 270), PackedInt32Array(270, 268, 271), PackedInt32Array(272, 274, 273), PackedInt32Array(278, 277, 275), PackedInt32Array(275, 277, 276), PackedInt32Array(281, 280, 279), PackedInt32Array(283, 282, 284), PackedInt32Array(284, 282, 285), PackedInt32Array(287, 286, 288), PackedInt32Array(288, 286, 289), PackedInt32Array(291, 290, 292), PackedInt32Array(292, 290, 293), PackedInt32Array(295, 294, 296), PackedInt32Array(298, 297, 299), PackedInt32Array(299, 297, 300), PackedInt32Array(303, 302, 301), PackedInt32Array(306, 305, 304), PackedInt32Array(309, 308, 310), PackedInt32Array(310, 308, 307), PackedInt32Array(310, 307, 312), PackedInt32Array(310, 312, 311), PackedInt32Array(315, 314, 316), PackedInt32Array(316, 314, 313), PackedInt32Array(316, 313, 317), PackedInt32Array(319, 318, 320), PackedInt32Array(320, 318, 321), PackedInt32Array(324, 323, 322), PackedInt32Array(327, 326, 325), PackedInt32Array(330, 329, 331), PackedInt32Array(331, 329, 328), PackedInt32Array(333, 332, 334), PackedInt32Array(334, 332, 335), PackedInt32Array(337, 336, 338), PackedInt32Array(340, 339, 341), PackedInt32Array(341, 339, 344), PackedInt32Array(341, 344, 342), PackedInt32Array(342, 344, 343), PackedInt32Array(346, 345, 347), PackedInt32Array(347, 345, 348), PackedInt32Array(350, 349, 351), PackedInt32Array(351, 349, 353), PackedInt32Array(351, 353, 352), PackedInt32Array(355, 354, 356), PackedInt32Array(356, 354, 357), PackedInt32Array(359, 358, 360), PackedInt32Array(360, 358, 361), PackedInt32Array(365, 364, 362), PackedInt32Array(362, 364, 363), PackedInt32Array(369, 368, 366), PackedInt32Array(366, 368, 367), PackedInt32Array(371, 370, 372), PackedInt32Array(372, 370, 374), PackedInt32Array(372, 374, 373), PackedInt32Array(376, 375, 377), PackedInt32Array(377, 375, 378), PackedInt32Array(380, 379, 381), PackedInt32Array(381, 379, 382), PackedInt32Array(386, 385, 383), PackedInt32Array(383, 385, 384), PackedInt32Array(390, 389, 387), PackedInt32Array(387, 389, 388), PackedInt32Array(393, 392, 391), PackedInt32Array(395, 394, 396), PackedInt32Array(396, 394, 397), PackedInt32Array(403, 402, 398), PackedInt32Array(398, 402, 399), PackedInt32Array(399, 402, 400), PackedInt32Array(400, 402, 401), PackedInt32Array(407, 406, 408), PackedInt32Array(408, 406, 404), PackedInt32Array(404, 406, 405), PackedInt32Array(411, 410, 409), PackedInt32Array(415, 414, 412), PackedInt32Array(412, 414, 413), PackedInt32Array(417, 416, 418), PackedInt32Array(418, 416, 419), PackedInt32Array(421, 420, 422), PackedInt32Array(422, 420, 423), PackedInt32Array(424, 427, 425), PackedInt32Array(425, 427, 426), PackedInt32Array(431, 430, 428), PackedInt32Array(428, 430, 429), PackedInt32Array(433, 432, 434), PackedInt32Array(434, 432, 437), PackedInt32Array(434, 437, 436), PackedInt32Array(434, 436, 435), PackedInt32Array(439, 438, 440), PackedInt32Array(440, 438, 441), PackedInt32Array(443, 442, 444), PackedInt32Array(444, 442, 446), PackedInt32Array(444, 446, 445), PackedInt32Array(450, 449, 447), PackedInt32Array(447, 449, 448), PackedInt32Array(454, 453, 451), PackedInt32Array(451, 453, 452), PackedInt32Array(455, 460, 456), PackedInt32Array(456, 460, 459), PackedInt32Array(456, 459, 457), PackedInt32Array(457, 459, 458), PackedInt32Array(464, 463, 461), PackedInt32Array(461, 463, 462), PackedInt32Array(465, 468, 466), PackedInt32Array(466, 468, 467), PackedInt32Array(470, 469, 471), PackedInt32Array(471, 469, 472), PackedInt32Array(475, 474, 473), PackedInt32Array(479, 478, 476), PackedInt32Array(476, 478, 477), PackedInt32Array(481, 480, 482), PackedInt32Array(482, 480, 483), PackedInt32Array(483, 480, 484), PackedInt32Array(486, 485, 487), PackedInt32Array(487, 485, 488), PackedInt32Array(492, 491, 489), PackedInt32Array(489, 491, 490), PackedInt32Array(495, 494, 493), PackedInt32Array(497, 496, 498), PackedInt32Array(498, 496, 499)]
 
 [sub_resource type="BoxMesh" id="BoxMesh_88i1p"]
 size = Vector3(18, 2, 1)
@@ -56,6 +59,14 @@ albedo_color = Color(0.364706, 0.345098, 0.113725, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_45odx"]
 material = SubResource("StandardMaterial3D_cdg0k")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cdlsc"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_yky8y"]
+material = SubResource("StandardMaterial3D_cdlsc")
+radius = 0.25
+height = 0.5
 
 [node name="FirstWall" type="Node3D"]
 script = ExtResource("1_j7paa")
@@ -498,3 +509,538 @@ transform = Transform3D(-0.999756, 0, -0.0220941, 0, 1, 0, 0.0220941, 0, -0.9997
 mesh = SubResource("PlaneMesh_45odx")
 skeleton = NodePath("../nav/wall")
 script = ExtResource("4_u0u81")
+
+[node name="Point" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.66595, 17.3104, 5.40576)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.66595, 17.3104, 7.02307)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93018, 17.3104, 7.08015)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93018, 17.3104, 9.078)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 2.93018, 17.3104, 5.38673)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 5.84134, 17.3104, 5.38673)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 5.84134, 17.3104, 7.3275)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point8" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 5.84134, 17.3104, 9.19217)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point9" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 7.38255, 17.3104, 11.4183)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point10" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 7.38255, 17.3104, 13.6065)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point11" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 10.6933, 17.3104, 13.6065)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point12" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 12.6531, 17.3104, 12.9786)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point13" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 2.30229, 17.3104, 12.9786)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point14" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 2.30229, 17.3104, 11.1329)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point15" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -2.41644, 17.3104, 10.6382)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point16" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -2.41644, 17.3104, 8.71649)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point17" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -0.190266, 17.3104, 8.71649)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point18" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -3.23461, 17.3104, 6.77572)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point19" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -5.78425, 17.3104, 10.9046)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point20" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -7.706, 17.3104, 10.9046)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point21" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -7.706, 17.3104, 7.90461)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point22" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -7.706, 17.3104, 5.24081)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point23" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -7.706, 17.3104, 2.63409)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point24" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -5.0422, 17.3104, 2.63409)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point25" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -2.60672, 17.3104, 2.63409)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point85" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 2.43548, 17.3104, 2.63409)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point86" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 4.1289, 17.3104, 2.63409)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point87" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 6.81173, 17.3104, 2.63409)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point88" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 8.35293, 17.3104, 2.63409)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point89" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 11.3973, 17.3104, 2.17743)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point90" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 11.3973, 17.3104, 6.03995)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point91" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 13.3973, 17.3104, 6.03995)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point92" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 13.3973, 17.3104, 7.96169)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point93" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 11.3973, 17.3104, 7.96169)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point94" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 9.68483, 17.3104, 5.20275)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point95" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 9.68483, 17.3104, 5.20275)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point96" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -14.1762, 17.3104, 6.4006)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point97" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -12.0324, 17.3104, 6.4006)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point98" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -10.9455, 17.3104, 8.15183)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point99" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -13.7535, 17.3104, 8.15183)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point100" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -13.7535, 17.3104, 11.141)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point101" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -13.7535, 17.3104, 13.141)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point102" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -10.3416, 17.3104, 13.141)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point103" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -10.3416, 17.3104, 11.1784)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point104" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -2.43082, 17.3104, 13.8657)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point105" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -5.02748, 17.3104, 13.8657)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point106" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -8.22802, 17.3104, 13.8657)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point107" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -8.22802, 17.3104, 13.8657)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point26" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -2.60672, 17.3104, 0.25569)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point27" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -4.96609, 17.3104, -0.790805)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point28" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -9.2472, 17.3104, -0.790805)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point29" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -12.2154, 17.3104, -0.790805)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point30" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -12.2154, 17.3104, 0.959695)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point31" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -12.2154, 17.3104, 2.69117)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point32" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -10.0083, 17.3104, 2.69117)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point33" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -12.7672, 17.3104, -4.0064)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point34" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -8.79055, 17.3104, -4.0064)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point35" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -8.79055, 17.3104, -5.69982)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point36" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -4.79484, 17.3104, -4.69982)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point37" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -4.79484, 17.3104, -8.69982)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point38" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -7.66794, 17.3104, -8.69982)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point39" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -10.8455, 17.3104, -8.69982)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point40" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -12.8455, 17.3104, -8.69982)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point41" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -12.8455, 17.3104, -7.29181)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point42" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -10.8857, 17.3104, -7.29181)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point43" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -12.9596, 17.3104, -11.5729)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point44" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -8.69756, 17.3104, -11.5729)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point45" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -8.69756, 17.3104, -13.9703)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point46" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -12.9787, 17.3104, -13.9703)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point47" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -4.79699, 17.3104, -13.9703)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point48" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -2.47567, 17.3104, -13.9703)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point49" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -0.13533, 17.3104, -13.9703)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point50" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -0.13533, 17.3104, -12.0676)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point51" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -0.13533, 17.3104, -10.0676)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point52" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -3.8266, 17.3104, -10.0676)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point53" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 2.28112, 17.3104, -10.0676)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point54" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 4.7166, 17.3104, -10.0676)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point55" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 7.3804, 17.3104, -10.0676)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point56" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 8.10343, 17.3104, -11.8942)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point57" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 8.10343, 17.3104, -13.6638)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point58" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 9.98712, 17.3104, -13.6638)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point59" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 12.004, 17.3104, -13.6638)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point60" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 13.9067, 17.3104, -13.6638)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point61" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 6.35293, 17.3104, -13.6638)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point62" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 4.35293, 17.3104, -13.6638)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point63" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 2.35293, 17.3104, -13.6638)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point64" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 2.35293, 17.3104, -13.6638)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point65" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 9.01244, 17.3104, -9.95346)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point66" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 10.82, 17.3104, -9.95346)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point67" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 12.7989, 17.3104, -9.95346)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point68" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 12.7989, 17.3104, -8.22199)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point69" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 12.7989, 17.3104, -6.47149)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point70" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 10.4775, 17.3104, -6.47149)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point71" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 7.94692, 17.3104, -6.47149)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point72" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 12.7608, 17.3104, -4.70196)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point73" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 12.7608, 17.3104, -2.628)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point74" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 12.7608, 17.3104, -1.2961)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point75" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 7.16681, 17.3104, -1.2961)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point76" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 5.24507, 17.3104, -1.2961)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point77" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 3.24507, 17.3104, -1.2961)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point78" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 3.24507, 17.3104, -3.67449)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point79" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 3.24507, 17.3104, -5.67449)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point80" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, 3.24507, 17.3104, -7.67449)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point81" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -0.408152, 17.3104, -7.67449)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point82" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -0.408152, 17.3104, -5.46734)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point83" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.364828, 0, 0.931075, 0, 1, 0, -0.931075, 0, 0.364828, -0.408152, 17.3104, -2.46734)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")
+
+[node name="Point84" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+mesh = SubResource("SphereMesh_yky8y")
+script = ExtResource("5_yg4gp")

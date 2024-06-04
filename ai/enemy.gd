@@ -18,8 +18,8 @@ func _ready():
 
 func _physics_process(delta):
 	timer+=1
-	var player = get_node("/root/"+get_tree().current_scene.name+"/player")
-	if player.global_position.distance_to(global_position) < 1.5 and timer > 100:
+	var player = get_parent_node_3d().get_node("player")
+	if player != null and player.can_move and player.global_position.distance_to(global_position) < 1.5 and timer > 100:
 		Global.lifes -=1
 		timer = 0
 	pass

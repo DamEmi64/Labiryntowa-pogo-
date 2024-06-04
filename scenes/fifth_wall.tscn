@@ -1,9 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://iv187ywfw0ob"]
+[gd_scene load_steps=28 format=3 uid="uid://iv187ywfw0ob"]
 
 [ext_resource type="Script" path="res://scenes/nav.gd" id="1_bxad5"]
 [ext_resource type="Script" path="res://scenes/wall.gd" id="1_lnwqr"]
 [ext_resource type="Script" path="res://player.gd" id="2_aqaqo"]
 [ext_resource type="Script" path="res://ai/teleport.gd" id="3_6flvc"]
+[ext_resource type="Script" path="res://Point.gd" id="5_q4hee"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_iqffc"]
 
@@ -62,6 +63,14 @@ albedo_color = Color(1, 1, 0, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5khye"]
 material = SubResource("StandardMaterial3D_wk5nb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8wq36"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_u0ajf"]
+material = SubResource("StandardMaterial3D_8wq36")
+radius = 0.25
+height = 0.5
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_lnwqr")
@@ -469,3 +478,388 @@ shape = SubResource("CapsuleShape3D_2bmd4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="player/CollisionShape3D"]
 mesh = SubResource("CapsuleMesh_5khye")
+
+[node name="Point" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.3104, 5.40576)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.43561, 17.3104, 5.40576)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.48916, 17.3104, 5.40576)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.25618, 17.3104, 5.40576)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.20842, 17.3104, 5.40576)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.73955, 17.3104, 5.40576)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point7" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7395, 17.3104, 5.40576)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point8" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7395, 17.3104, 0.439024)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point9" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.77861, 17.3104, 0.439024)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point10" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0087, 17.3104, 0.439024)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point11" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0087, 17.3104, -2.85622)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point12" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0087, 17.3104, -5.67388)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point13" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0087, 17.3104, -8.67388)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point14" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0232, 17.3104, -8.67388)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point18" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0232, 17.3104, -11.4438)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point19" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0232, 17.3104, -14.739)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point20" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0232, 17.3104, -15.9807)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point21" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.72795, 17.3104, -15.9807)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point22" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.72216, 17.3104, -15.9807)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point23" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.72216, 17.3104, -18.9807)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point24" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.87702, 17.3104, -18.9807)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point25" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.87702, 17.3104, -20.3179)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point26" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6744, 17.3104, -20.3179)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point27" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.47177, 17.3104, -20.3179)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point28" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58468, 17.3104, -20.3179)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point29" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.54562, 17.3104, -20.3179)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point30" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.31553, 17.3104, -20.3179)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point31" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1332, 17.3104, -20.3179)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point32" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0522, 17.3104, -20.3179)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point33" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0522, 17.3104, -15.6377)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point34" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0522, 17.3104, -13.2499)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point35" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0522, 17.3104, -11.5306)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point36" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0522, 17.3104, -9.62033)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point37" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.07384, 17.3104, -9.62033)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point38" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.22291, 17.3104, -9.62033)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point39" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.22291, 17.3104, -12.684)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point40" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54912, 17.3104, -12.684)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point41" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54912, 17.3104, -16.0263)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point42" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.00009, 17.3104, -16.0263)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point43" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8967, 17.3104, -16.0263)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point44" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8967, 17.3104, -18.2544)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point45" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8967, 17.3104, -13.631)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point46" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8967, 17.3104, -11.2914)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point47" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8967, 17.3104, -9.06329)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point48" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.03978, 17.3104, -10.5116)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point49" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.03978, 17.3104, -13.4082)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point50" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.03978, 17.3104, -15.1907)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point51" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.41653, 17.3104, -15.1907)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point52" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.41653, 17.3104, -13.5753)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point53" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.41653, 17.3104, -11.4029)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point54" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.87017, 17.3104, -11.4029)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point55" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09281, 17.3104, -6.3895)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point56" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09281, 17.3104, -4.21705)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point58" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09281, 17.3104, -1.54326)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point59" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87533, 17.3104, -0.262075)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point60" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.71623, 17.3104, -0.262075)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point61" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.71623, 17.3104, -3.4929)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point62" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.71623, 17.3104, -6.44521)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point63" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2839, 17.3104, -6.44521)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point64" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2839, 17.3104, -3.38149)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point65" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2839, 17.3104, -0.317779)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point66" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2839, 17.3104, 2.52312)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point67" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2839, 17.3104, 5.53113)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point68" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8517, 17.3104, 6.86802)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point69" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8517, 17.3104, 4.24994)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point70" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8517, 17.3104, 1.79897)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point71" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8517, 17.3104, -1.09764)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point72" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8517, 17.3104, -6.50091)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point73" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8517, 17.3104, -6.50091)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point74" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.39816, 17.3104, -7.69707)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point75" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.39816, 17.3104, -4.73816)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point76" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.39816, 17.3104, -0.394223)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point77" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.39816, 17.3104, -0.394223)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point57" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.724151)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point15" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0232, 17.3104, -6.14276)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point16" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0232, 17.3104, -3.03855)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
+
+[node name="Point17" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.764112)
+mesh = SubResource("SphereMesh_u0ajf")
+script = ExtResource("5_q4hee")
