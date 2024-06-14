@@ -18,9 +18,7 @@ script = ExtResource("2_q6qih")
 time = 100.0
 speed = 1.0
 node_var = NodePath("Mixie")
-LDVector = Vector3(32, 0, 32)
 tolerance = 5.0
-RUVector = Vector3(0, 0, 0)
 
 [sub_resource type="BTSequence" id="BTSequence_cikcd"]
 children = [SubResource("BTInvert_i4ma1"), SubResource("BTAction_qeean")]
@@ -30,7 +28,7 @@ forever = true
 children = [SubResource("BTSequence_cikcd")]
 
 [sub_resource type="BTWait" id="BTWait_snct7"]
-duration = 20.0
+duration = 5.0
 
 [sub_resource type="BTAction" id="BTAction_fi1ao"]
 script = ExtResource("3_hw8ig")

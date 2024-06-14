@@ -21,8 +21,9 @@ func _setup() -> void:
 	rng = RandomNumberGenerator.new()
 
 func _tick(_delta: float) -> Status:
+	var node = agent.get_node(node_var)	
 	
-	if time != 0 and timer == time:
+	if (time != 0 and timer == time) or node.global_position.distance_to(pos) < 2:
 		timer = 0
 		pos = Vector3()
 		pos.y = 0
@@ -30,10 +31,6 @@ func _tick(_delta: float) -> Status:
 		pos.z = rng.randf_range(0,1000)
 		
 	timer +=1	
-	
-	var node = agent.get_node(node_var)	
-	#var velocity = (target.global_position - node.global_position).normalized()
-	#node.move_and_collide(velocity*speed*_delta)
-	
+
 	node.move_pathfind(pos)
 	return RUNNING

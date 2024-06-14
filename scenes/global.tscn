@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://ctqjqjstobqhx" path="res://scenes/control.tscn" id="4_ow2cw"]
 [ext_resource type="PackedScene" uid="uid://ywat56uhtvmn" path="res://ai/third_wall.tscn" id="5_2obct"]
 [ext_resource type="PackedScene" uid="uid://c0r8grynqexs0" path="res://scenes/fourth_wall.tscn" id="6_14rso"]
-[ext_resource type="PackedScene" uid="uid://iv187ywfw0ob" path="res://scenes/fifth_wall.tscn" id="7_miaeb"]
 [ext_resource type="PackedScene" uid="uid://ba5g1q1cia413" path="res://scenes/six_wall.tscn" id="8_rdb5k"]
+[ext_resource type="PackedScene" uid="uid://iv187ywfw0ob" path="res://scenes/fifth_wall.tscn" id="9_cc7b6"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_m4jib"]
 
@@ -34,8 +34,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 499.132, 180.942, 11.8683)
 [node name="FourthWall" parent="." instance=ExtResource("6_14rso")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 508.034, 0, 0)
 
-[node name="FifthWall" parent="." instance=ExtResource("7_miaeb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 501.238, -83.0272, 12.182)
-
 [node name="SixWall" parent="." instance=ExtResource("8_rdb5k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 501.855, -177.939, -2.95115)
+
+[node name="FifthWall" parent="." instance=ExtResource("9_cc7b6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 497.753, -81.1043, 0)
